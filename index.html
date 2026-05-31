@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0d;--sur:#161616;--brd:#2a2a2a;--acc:#e8ff47;--txt:#f0f0f0;--mut:#666;--ok:#4ade80;--bad:#f87171;--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Syne',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+header{width:100%;max-width:780px;padding:32px 24px 0;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--acc)}
+.pw{display:flex;align-items:center;gap:12px}
+.pb{width:160px;height:4px;background:var(--brd);border-radius:2px;overflow:hidden}
+.pf{height:100%;background:var(--acc);border-radius:2px;transition:width .4s}
+.pt{font-family:'DM Mono',monospace;font-size:12px;color:var(--mut)}
+.sb{display:flex;gap:20px;padding:10px 16px;background:var(--sur);border:1px solid var(--brd);border-radius:40px;font-family:'DM Mono',monospace;font-size:12px;margin:20px 0 0}
+.si{display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.c{background:var(--ok)}.dot.w{background:var(--bad)}
+main{width:100%;max-width:780px;padding:28px 24px 60px}
+.qc{background:var(--sur);border:1px solid var(--brd);border-radius:var(--r);padding:28px;margin-bottom:20px;animation:si .3s ease}
+@keyframes si{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.qm{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.qn{font-family:'DM Mono',monospace;font-size:11px;color:var(--mut)}
+.badge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid}
+.bs{color:#a78bfa;border-color:#a78bfa33;background:#a78bfa11}
+.bm{color:#60a5fa;border-color:#60a5fa33;background:#60a5fa11}
+.bt{color:#fb923c;border-color:#fb923c33;background:#fb923c11}
+.bf{color:#34d399;border-color:#34d39933;background:#34d39911}
+.bM{color:#f472b6;border-color:#f472b633;background:#f472b611}
+.bo{color:#fbbf24;border-color:#fbbf2433;background:#fbbf2411}
+.qt{font-size:16px;font-weight:600;line-height:1.55;margin-bottom:22px;white-space:pre-wrap}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;padding:13px 16px;border:1px solid var(--brd);border-radius:8px;cursor:pointer;transition:border-color .15s,background .15s;user-select:none}
+.opt:hover:not(.locked){border-color:#444;background:#1e1e1e}
+.tick{width:20px;height:20px;border-radius:50%;border:2px solid var(--brd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .15s}
+.opt.mul .tick{border-radius:4px}
+.opt.sel .tick{border-color:var(--acc);background:var(--acc);color:#000}
+.opt.ok{border-color:var(--ok);background:#4ade8011}
+.opt.ok .tick{border-color:var(--ok);background:var(--ok);color:#000}
+.opt.bad{border-color:var(--bad);background:#f8717111}
+.opt.bad .tick{border-color:var(--bad);background:var(--bad);color:#000}
+.opt.shw{border-color:var(--ok);background:#4ade8011}
+.ol{font-size:14px;line-height:1.4}
+input[type=text]{width:100%;background:#111;border:1px solid var(--brd);border-radius:8px;padding:13px 16px;color:var(--txt);font-family:'Syne',sans-serif;font-size:15px;outline:none;transition:border-color .15s}
+input[type=text]:focus{border-color:var(--acc)}
+input.ok{border-color:var(--ok)}
+input.bad{border-color:var(--bad)}
+.fg{display:flex;flex-direction:column;gap:10px}
+.fr{display:flex;align-items:center;gap:12px}
+.fk{font-family:'DM Mono',monospace;font-size:13px;color:var(--acc);min-width:24px;font-weight:600}
+.fi{flex:1;background:#111;border:1px solid var(--brd);border-radius:8px;padding:10px 14px;color:var(--txt);font-family:'Syne',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.fi:focus{border-color:var(--acc)}
+.mg{display:flex;flex-direction:column;gap:10px}
+.mr{display:flex;align-items:center;gap:12px}
+.mp{flex:1;font-size:13px;line-height:1.4;padding:10px 14px;background:#111;border-radius:8px;border:1px solid var(--brd)}
+.ma{color:var(--mut);flex-shrink:0;font-size:16px}
+select{min-width:160px;background:#111;border:1px solid var(--brd);border-radius:8px;padding:10px 14px;color:var(--txt);font-family:'Syne',sans-serif;font-size:13px;outline:none;cursor:pointer;appearance:none;transition:border-color .15s}
+select:focus{border-color:var(--acc)}
+select.ok{border-color:var(--ok)}
+select.bad{border-color:var(--bad)}
+.ol-list{display:flex;flex-direction:column;gap:8px}
+.oi{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#111;border:1px solid var(--brd);border-radius:8px;cursor:grab;user-select:none;transition:border-color .15s}
+.oi:active{cursor:grabbing}
+.oi.dragging{opacity:.4}
+.oi.drag-over{border-color:var(--acc);background:#1e1e1e}
+.oi.ok{border-color:var(--ok)}
+.oi.bad{border-color:var(--bad)}
+.oh{color:var(--mut);font-size:14px}
+.on{font-family:'DM Mono',monospace;font-size:11px;color:var(--mut);min-width:20px}
+.fb{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:13px;display:none;animation:fi .25s ease}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.fb.show{display:flex;gap:10px;align-items:flex-start}
+.fb.ok{background:#4ade8015;border:1px solid #4ade8044;color:var(--ok)}
+.fb.bad{background:#f8717115;border:1px solid #f8717144;color:var(--bad)}
+.fbi{font-size:16px;flex-shrink:0}
+.fbl{font-weight:700;margin-bottom:4px}
+.fba{color:var(--txt);font-size:12px;line-height:1.5;margin-top:4px}
+.qa{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.btn{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;padding:11px 22px;border-radius:8px;cursor:pointer;border:none;transition:all .15s}
+.bchk{background:var(--acc);color:#000}
+.bchk:hover{background:#d4eb3a}
+.bchk:disabled{opacity:.4;cursor:not-allowed}
+.bnx,.bpv{background:transparent;color:var(--txt);border:1px solid var(--brd)}
+.bpv{color:var(--mut)}
+.bnx:hover,.bpv:hover{border-color:#555;background:#1e1e1e;color:var(--txt)}
+.bnx:disabled,.bpv:disabled{opacity:.3;cursor:not-allowed}
+#res{display:none;width:100%;max-width:780px;padding:60px 24px;text-align:center}
+.rc{width:140px;height:140px;border-radius:50%;border:3px solid var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 28px}
+.rp{font-size:36px;font-weight:800;color:var(--acc);line-height:1}
+.rs{font-size:11px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.rt{font-size:28px;font-weight:800;margin-bottom:12px}
+.rst{display:flex;justify-content:center;gap:32px;margin:24px 0 36px}
+.ri{text-align:center}
+.rv{font-size:28px;font-weight:800}
+.rl{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.ri.c .rv{color:var(--ok)}.ri.w .rv{color:var(--bad)}
+.brst{background:var(--acc);color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;padding:14px 36px;border:none;border-radius:8px;cursor:pointer}
+.brst:hover{background:#d4eb3a}
+.nd{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.nd button{width:28px;height:28px;border-radius:6px;border:1px solid var(--brd);background:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:10px;color:var(--mut);transition:all .15s}
+.nd button:hover{border-color:#555;color:var(--txt)}
+.nd button.act{border-color:var(--acc);color:var(--acc)}
+.nd button.aok{background:#4ade8022;border-color:var(--ok);color:var(--ok)}
+.nd button.abad{background:#f8717122;border-color:var(--bad);color:var(--bad)}
+.at{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.at td{padding:3px 8px;border-bottom:1px solid #2a2a2a;color:var(--txt);line-height:1.4}
+.at td:first-child{color:var(--mut);width:45%}
+@media(max-width:600px){.mr{flex-direction:column;align-items:stretch}.ma{display:none}select{min-width:100%}}
+</style>
+</head>
+<body>
+<header id="hdr">
+  <span class="logo">⬡ Quiz</span>
+  <div class="pw">
+    <div class="pb"><div class="pf" id="pf"></div></div>
+    <span class="pt" id="pt">0 / 0</span>
+  </div>
+</header>
+<div style="display:flex;justify-content:center">
+  <div class="sb" id="sb">
+    <div class="si"><div class="dot c"></div><span id="sc">0</span> to'g'ri</div>
+    <div class="si"><div class="dot w"></div><span id="sw">0</span> noto'g'ri</div>
+    <div class="si" style="color:var(--mut)"><span id="sr">0</span> qoldi</div>
+  </div>
+</div>
+<main id="qmain">
+  <div class="nd" id="nd"></div>
+  <div id="qw"></div>
+</main>
+<div id="res">
+  <div class="rc"><div class="rp" id="rpct">0%</div><div class="rs">natija</div></div>
+  <div class="rt" id="rtit"></div>
+  <div class="rst">
+    <div class="ri c"><div class="rv" id="rsc">0</div><div class="rl">To'g'ri</div></div>
+    <div class="ri w"><div class="rv" id="rsw">0</div><div class="rl">Noto'g'ri</div></div>
+    <div class="ri"><div class="rv" id="rst">0</div><div class="rl">Jami</div></div>
+  </div>
+  <button class="brst" id="rbtn">Qaytadan boshlash</button>
+</div>
+<script>
+
+const Q=[{"id":1,"type":"single","question":"2000-yilda Professor Sintiya Breazeal ko'zlari, qoshlari, quloqlari va og'zi mavjud bo'lgan yuzi bilan inson his-tuyg'ularini taqlid qila oladigan birinchi robotni yaratdi. U robot qanday nom bilan atalgan?","options":["AARON","Deep Blue","Qismet","Sofiya","Aliza"],"correct_answer":"Qismet"},{"id":2,"type":"text","question":"Qaysi sun'iy intellekt shaxmat chempioni Kasparovni mag'lub etgan?","options":null,"correct_answer":"Deep Blue"},{"id":3,"type":"text","question":"Datasetda bo'sh qiymat (NaN) bor qator yoki ustunlarni o'chirib tashlash funksiyasini yozing.","options":null,"correct_answer":"dropna()"},{"id":4,"type":"text","question":"2025-yil natijalariga ko'ra Hukumatning sun'iy intellektga tayyorgarlik indeksida O'zbekiston nechanchi o'rinda edi? Raqamni yolng","options":null,"correct_answer":"62"},{"id":5,"type":"single","question":"Vizual idrok etish (ko'rish), nutqni anglash, qaror qabul qilish va tarjima kabi odatda inson aql-zakovatini talab qiladigan vazifalarni bajarishga qodir kompyuter tizimlarini o'rganish va yaratish nima deyiladi","options":["Machine Learning","Deep Learning","Sun'iy intellekt","Fleep Learing"],"correct_answer":"Sun'iy intellekt"},{"id":6,"type":"text","question":"Sun'iy intellekt tadqiqotlari uchun birinchi dasturlash tili nomini yozing","options":null,"correct_answer":"LISP"},{"id":7,"type":"single","question":"2016-yilda Hanson Robotics kompaniyasi birinchi \"robot fuqarosi\" sifatida tanilgan .... ismli gumanoid robotni yaratdi va insonning real qiyofasi va his-tuyg'ularini ko'rish va takrorlash, shuningdek, muloqot qilish qobiliyatiga ega yaratilgan birinchi robot edi. Robot nomi nima edi?","options":["Qismet","Aliza","Deep Blue","AARON","Sofiya"],"correct_answer":"Sofiya"},{"id":8,"type":"single","question":"Kompyuterlarni to'g'ridan-to'g'ri dasturlanmasdan o'rganish qobiliyatiga ega bo'lishi nima deyiladi?","options":["Deep Learning","Fleep Learning","Machine Learning","Natural Learning"],"correct_answer":"Machine Learning"},{"id":9,"type":"fill_in","question":"\"Turing testi\"ning interpretatsiyasi rasmida A, B va C lar nimalar: A - kompyuter, B - insonlardan ularni ko'rmasdan, savollarga matn formatida javob beruvchi inson, C - baholovchi","options":null,"correct_answer":{"A":"kompyuter","B":"insonlardan ularni ko'rmasdan, savollarga matn formatida javob beruvchi inson","C":"baholovchi"}},{"id":10,"type":"single","question":"1985-yilda ASIA konferensiyasida .... deb nomlanuvchi avtonom chizmachilik dasturi namoyish etildi. Robot nomi nima edi?","options":["Aliza","Qismet","Deep Blue","Sofiya","AARON"],"correct_answer":"AARON"},{"id":11,"type":"single","question":"1997-yilda Deep Blue shaxmat bo'yicha jahon chempioni Gari Kasparovni shaxmat o'yinida mag'lub etib, inson shaxmat chempionini mag'lub etgan birinchi dasturga aylandi. Deep Blue qaysi kompaniya tomonidan ishlab chiqilgan?","options":["Facebook","Microsoft","IBM","LISP","Google"],"correct_answer":"IBM"},{"id":12,"type":"text","question":"1966-yilda Jozef Vayzenbaum birinchi chatbotni yaratgan. Uning dastlabki nomi nima edi?","options":null,"correct_answer":"chatterbot"},{"id":13,"type":"single","question":"1950-yilda Mashinalar o'ylay oladimi? degan savolni kim o'rtaga tashladi?","options":["Alan Cisco","Alan Turing","Bill Geyts","Natan Mayer Rotshild"],"correct_answer":"Alan Turing"},{"id":14,"type":"single","question":"Mashinali o'qitish uchun quyidagi ta'rifni kim bergan? Kompyuter dasturi T vazifadan E tajribani o'rganadi, bunda dastur effektivligi P orqali o'lchanadi, agar T vazifani yechishdagi effektivlik (ya'ni P orqali o'lchanuvchi) E tajriba orqali oshsa","options":["Artur Samuel","Alan Mitchel","Alan Turing","Tom Mitchel"],"correct_answer":"Tom Mitchel"},{"id":15,"type":"single","question":"Nima shunday sohaki, bunda kompyuterlar to'g'ridan-to'g'ri dasturlanmasdan o'rganish qobiliyatiga ega bo'ladi?","options":["Deep Learning","Sun'iy intellekt","Machine learning","Data Sciense"],"correct_answer":"Machine learning"},{"id":16,"type":"fill_in","question":"Chalkashlik matritsasi (Confusion Matrix) rasmida: Model 0 sinfga tegishli jami ___ ta qiymatdan ___ tasini to'g'ri aniqlagan, ___ tasini 1 sinfga tegishli deb adashgan. Hamda 1-sinfga tegishli ___ ta qiymatimizdan ___ tasini to'g'ri aniqlagan va ___ tasini 0 sinf deb adashganligini ko'rishimiz mumkin (Confusion matrix: 49, 4, 12, 15 qiymatlar bilan)","options":null,"correct_answer":{"jami_0":"53","togri_0":"49","xato_0":"4","jami_1":"27","togri_1":"15","xato_1":"12"}},{"id":17,"type":"fill_in","question":"Confusion Matrix (46, 6, 10, 18): Chalkashlik matritsasi Model 0 sinfga tegishli jami ___ ta qiymatdan ___ tasini to'g'ri aniqlagan, ___ tasini 1 sinfga tegishli deb adashgan. Hamda 1-sinfga tegishli ___ ta qiymatimizdan ___ tasini to'g'ri aniqlagan va ___ tasini 0 sinf deb adashganligini ko'rishimiz mumkin","options":null,"correct_answer":{"jami_0":"52","togri_0":"46","xato_0":"6","jami_1":"28","togri_1":"18","xato_1":"10"}},{"id":18,"type":"multiple","question":"Ushbu dataset quyidagi code asosida x qaysi ustunlarni model qurish uchun oladi?\nx = df.iloc[:, [2, 3]].values\ny = df.iloc[:, 4].values\n(Dataset: UserID, Gender, Age, EstimatedSalary, Purchased)","options":["Age","EstimatedSalary","Gender","User ID","Purchased"],"correct_answer":["Age","EstimatedSalary"]},{"id":19,"type":"single","question":"tree_model = DecisionTreeClassifier(min_impurity_decrease=0.0, max_depth=3) - Ushbu modeldagi max_depth - DecisionTreeda daraxt nima vazifani bajaradi?","options":["grafikdagi daraxtni 3D shaklda chiqarishni","grafikdagi gini qiymati nechchigacha borishini","grafikdagi daraxt barglari sonini","grafikdagi daraxt shox(qavat)lari sonini"],"correct_answer":"grafikdagi daraxt shox(qavat)lari sonini"},{"id":20,"type":"multiple","question":"Ushbu dataset quyidagi code asosida y qaysi ustunlarni model qurish uchun oladi?\nx = df.iloc[:, [2, 3]].values\ny = df.iloc[:, 4].values\n(Dataset: UserID, Gender, Age, EstimatedSalary, Purchased)","options":["Gender","User ID","Age","EstimatedSalary","Purchased"],"correct_answer":["Purchased"]},{"id":21,"type":"fill_in","question":"Confusion Matrix (46, 6, 10, 18) - Chalkashlik matritsasi Model 0 sinfga tegishli jami ___ ta qiymatdan ___ tasini to'g'ri aniqlagan, ___ tasini 1 sinfga tegishli deb adashgan. Hamda 1-sinfga tegishli ___ ta qiymatimizdan ___ tasini to'g'ri aniqlagan va ___ tasini 0 sinf deb adashganligini ko'rishimiz mumkin","options":null,"correct_answer":{"jami_0":"52","togri_0":"46","xato_0":"6","jami_1":"28","togri_1":"18","xato_1":"10"}},{"id":22,"type":"text","question":"Logistik regressiyada bashorat qilingan qiymatlarni 0 va 1 oraliqqa keltirish uchun qanday funksiyadan foydalaniladi? Funksiya nomini yozing.","options":null,"correct_answer":"sigmoid"},{"id":23,"type":"text","question":"Uchbu classification_report kodida aniqlik necha % ni ko'rsatayapdi?\nprecision recall f1-score support\n0 0.93 1.00 0.96 66\n1 1.00 0.90 0.95 48\naccuracy 0.96 114\nmacro avg 0.96 0.95 0.95 114\nweighted avg 0.96 0.96 0.96 114","options":null,"correct_answer":"96"},{"id":24,"type":"single","question":"tree_model = DecisionTreeClassifier(min_impurity_decrease=0.0, min_samples_leaf=5, max_depth=3) - Ushbu modeldagi min_samples_leaf - DecisionTreeda nima vazifani bajaradi?","options":["daraxtdagi indizlar soni nechchigacha borishligini","daraxtdagi gini qiymati nechchigacha borishligini","daraxtdagi barglar soni nechchigacha borishligini","daraxtdagi shoxlar soni nechchigacha borishligini"],"correct_answer":"daraxtdagi barglar soni nechchigacha borishligini"},{"id":25,"type":"text","question":"encoder = LabelEncoder()\ndf['Sex'] = encoder.fit_transform(df['Sex'].values)\ndf['BP'] = encoder.fit_transform(df['BP'].values)\ndf['Cholesterol'] = encoder.fit_transform(df['Cholesterol'].values)\ndf.sample(10)\nUchbu kod nechta ustunni endocderlayapdi?","options":null,"correct_answer":"3"},{"id":26,"type":"fill_in","question":"E(S) = Σ(-p_i * log2(p_i)) formulasida: Entropiya qiymati qanchalik kichik bolsa model shuncha yaxshi bo'ladi. Entropiya formulasi qiymatlarini ta'riflang: joriy ma'lumotlar to'plami = ___, klasslar soni = ___, i-klassning butun to'plamdagi ulushi = ___","options":null,"correct_answer":{"joriy_malumotlar":"S","klasslar_soni":"C","ulush":"p_i"}},{"id":27,"type":"text","question":"precision recall f1-score support\n0 0.93 1.00 0.96 66\n1 1.00 0.90 0.95 48\naccuracy 0.96 114\nmacro avg 0.96 0.95 0.95 114\nweighted avg 0.96 0.96 0.96 114\nUchbu classification_report kodida datasetdagi nechta yozuv bilan ishlanayapdi?","options":null,"correct_answer":"114"},{"id":28,"type":"single","question":"tree_model = DecisionTreeClassifier()\ntree_model.fit(X_train, y_train) - uchbu qator nima ish qiladi?","options":["modelni chiqaradi","modelni tarbiyalaydi","modelni chaqiradi","modelni Decision Tree qiladi"],"correct_answer":"modelni tarbiyalaydi"},{"id":29,"type":"matching","question":"Tasniflash algoritmlari va ularning asosiy tushunchalarini moslang.","options":null,"correct_answer":{"Qiymatlarni 0 va 1 oraliqqa tushirib beruvchi logistik funksiya.":"Sigmoid funksiya","Ma'lumotlarni daraxtsimon ierarxiya ko'rinishida tasniflovchi algoritm.":"Decision Tree","Bir nechta qaror daraxtlari birlashmasidan tashkil topgan ansambl algoritm.":"Random Forest","SVM algoritmi orqali ma'lumotlarni turli sinflarga ajratuvchi chegara (tekislik).":"Hyperplane","Ehtimollikni hisoblash orqali obyektni ma'lum bir sinfga tegishliligini aniqlash.":"Logistik regressiya"}},{"id":30,"type":"text","question":"Scikit-learn kutubxonasida logistik regressiya modelini o'qitish (train) uchun qaysi metoddan foydalaniladi? Faqat metod nomini yozing.","options":null,"correct_answer":"fit"},{"id":31,"type":"single","question":"tree_model = DecisionTreeClassifier(min_impurity_decrease=0.0, max_depth=3) - Ushbu modeldagi min_impurity_decrease - DecisionTreeda nima vazifani bajaradi?","options":["daraxtdagi shox sonini","gini qaysi qiymatgacha borishligini","daraxtdagi ildizlar sonini","daraxtdagi barglar sonini"],"correct_answer":"gini qaysi qiymatgacha borishligini"},{"id":32,"type":"text","question":"Tasniflash algoritmlarini sifatini baholashda ishlatiladigan, \"aniqlik\" ma'nosini beruvchi ko'rsatkich qaysi?","options":null,"correct_answer":"accuracy"},{"id":33,"type":"single","question":"Mashinalarni inson kabi o'ylab qaror qabul qilishga undovchi intellekt - ?","options":["AI","DL","ML","IoT"],"correct_answer":"AI"},{"id":34,"type":"single","question":"Datasetdagi ma'lumotlarni normalizatsiya qilish nima degani?","options":["ma'lumotlarni [0, 10] oraliqqa tushirish","ma'lumotlarni [0, 100] oraliqqa tushirish","ma'lumotlarni [-1, 1] oraliqqa tushirish","ma'lumotlarni [0, 1] oraliqqa tushirish"],"correct_answer":"ma'lumotlarni [0, 1] oraliqqa tushirish"},{"id":35,"type":"single","question":"Hierarchical (iyerarxik) klasterlash qanday datasetlarga tavsiya qilinadi?","options":["o'rta","Xatolari ko'p datasetlar uchun","katta","kichik"],"correct_answer":"kichik"},{"id":36,"type":"single","question":"ML bajarishi mumkin bo'lgan barcha vazifalarni neyron tarmoqlari orqali bajarish - ?","options":["AI","IoT","ML","DL"],"correct_answer":"DL"},{"id":37,"type":"matching","question":"Klasterlash algoritmlarini mosiga mosini toping","options":null,"correct_answer":{"Xatolari ko'p datasetlar uchun tavsiya qilinadi":"Zichlikka asoslangan (density-based) klasterlash","O'rta va katta hajmdagi datasetlarga qo'llash tavsiya qilinadi":"Partiotioned-based (guruhlash yordamida) klasterlash","Kichik hajmdagi datasetlar uchun tavsiya qilinadi":"Hierarchical (iyerarxik yoki shajarali) klasterlash"}},{"id":38,"type":"matching","question":"Mosiga mosini toping","options":null,"correct_answer":{"Klasterlash algoritmi":"KMeans","Ma'lumotlarni normallashtiradi":"StandardScaler","Bashorat qiladi":"predict()","Modelni o'qitadi":"fit()"}},{"id":39,"type":"single","question":"K-means algoritmining maqsadi SDE (kvadratik xatolik) qiymatini maksimal darajaga ko'tarishdir.","options":["True","False"],"correct_answer":"False"},{"id":40,"type":"single","question":"O'rta va katta hajmdagi datasetlarga qo'llash uchun qaysi klasterlash tavsiya qilinadi?","options":["Zichlikka asoslangan (density-based) klasterlash","Partiotioned-based (guruhlash yordamida) klasterlash","Hierarchical (iyerarxik) klasterlash","Zichlikka asoslanmagan (density-unbased) klasterlash"],"correct_answer":"Partiotioned-based (guruhlash yordamida) klasterlash"},{"id":41,"type":"single","question":"Klaster soni k qanday aniqlanadi?","options":["bilak metodi orqali","qo'l metodi orqali","tirsak metodi orqali","barmoqlar metodi orqali"],"correct_answer":"tirsak metodi orqali"},{"id":42,"type":"single","question":"K-Means qaysi klasterlash algoritmiga kiradi","options":["Hierarchical (iyerarxik) klasterlash","Zichlikka asoslangan (density-based) klasterlash","Zichlikka asoslanmagan (density-unbased) klasterlash","Partiotioned-based (guruhlash yordamida) klasterlash"],"correct_answer":"Partiotioned-based (guruhlash yordamida) klasterlash"},{"id":43,"type":"single","question":"Natija dataxt (shajara) ko'rinishida qaysi klasterlash algoritmi chiqaradi?","options":["Partiotioned-based (guruhlash yordamida) klasterlash","Zichlikka asoslangan (density-based) klasterlash","Zichlikka asoslanmagan (density-unbased) klasterlash","Hierarchical (iyerarxik) klasterlash"],"correct_answer":"Hierarchical (iyerarxik) klasterlash"},{"id":44,"type":"single","question":"Xatolari ko'p datasetlar uchun qaysi klasterlash tavsiya qilinadi?","options":["Zichlikka asoslanmagan (density-unbased) klasterlash","Partiotioned-based (guruhlash yordamida) klasterlash","Hierarchical (iyerarxik) klasterlash","Zichlikka asoslangan (density-based) klasterlash"],"correct_answer":"Zichlikka asoslangan (density-based) klasterlash"},{"id":45,"type":"single","question":"Unsupervised Learningda ma'lumotlarga nima berilmaydi?","options":["Qiymat","label","Empty","Null"],"correct_answer":"label"},{"id":46,"type":"single","question":"Mashinalarning to'g'ridan-to'g'ri dasturlashsiz vazifalarni bajarish qobiliyati - ?","options":["AI","IoT","DL","ML"],"correct_answer":"AI"},{"id":47,"type":"single","question":"Perceptronning asosiy vazifasi nima?","options":["Murakkab tasvirlarni qayta ishlash","Ovoz tanish","Tilni tarjima qilish","Chiziqli tasniflash"],"correct_answer":"Chiziqli tasniflash"},{"id":48,"type":"single","question":"Quyidagi vazifalardan qaysi biri uchun chuqur o'qitishdan foydalanish eng kam samara berishi mumkin?","options":["Minglab tibbiy tasvirlar asosida kasallikni tashxislash.","Juda kam miqdordagi ma'lumotlar bilan savdo-sotiqni bashorat qilish.","Videodagi nutqni matnga o'girish.","Ijtimoiy tarmoqdagi millionlab suratlardan mushuklarni aniqlash."],"correct_answer":"Juda kam miqdordagi ma'lumotlar bilan savdo-sotiqni bashorat qilish."},{"id":49,"type":"single","question":"Perceptronning cheklovlaridan biri nima?","options":["Chiziqli bo'lmagan masalalarni hal qila olmaydi","Ko'p qatlamli bo'lishi mumkin emas","Ma'lumotni qabul qila olmaydi","Og'irliklarni o'zgartira olmaydi"],"correct_answer":"Chiziqli bo'lmagan masalalarni hal qila olmaydi"},{"id":50,"type":"single","question":"\"Mashina o'rganishi\" va \"Chuqur o'rganish\" o'rtasidagi asosiy farq nima?","options":["Mashina o'rganishi faqat kichik ma'lumotlar bilan ishlaydi.","Chuqur o'rganishda modellar kerakli xususiyatlarni avtomatik tarzda o'zi ajratib oladi.","Chuqur o'rganish sun'iy intellektning bir qismi emas.","Mashina o'rganishida Python tili ishlatilmaydi"],"correct_answer":"Chuqur o'rganishda modellar kerakli xususiyatlarni avtomatik tarzda o'zi ajratib oladi."},{"id":51,"type":"matching","question":"Neyron tarmoqda ishlatiladigan aktivlashtirish funksiyalarini mosiga mosini toping (grafiklari bo'yicha): birinchi grafik (0 dan 1 gacha o'suvchi chiziqli ko'rinish) = ___, ikkinchi grafik (S-shakl, 0 va 1 orasida) = ___, uchinchi grafik (-1 va 1 orasida, nol markazlashgan) = ___","options":null,"correct_answer":{"Birinchi grafik (0 dan to'g'ri chiziqli o'suvchi)":"Sigmoid","Ikkinchi grafik (S-shakl, -10 dan 10 gacha)":"tanh","Uchinchi grafik (nol markazlashgan, S-shakl)":"ReLU"}},{"id":52,"type":"single","question":"Nima uchun videodagi misolda oddiy chegaraviy aktivatsiya (if z >= 0) o'rniga Sigmoid funksiyasi ishlatildi?","options":["Chunki u numpy kutubxonasini talab qilmaydi.","Chunki u \"ha/yo'q\" javobidan ko'ra informativroq bo'lgan ehtimollikni qaytaradi.","Chunki u faqat manfiy sonlar bilan ishlay oladi.","Chunki u ancha tezroq hisoblanadi."],"correct_answer":"Chunki u \"ha/yo'q\" javobidan ko'ra informativroq bo'lgan ehtimollikni qaytaradi."},{"id":53,"type":"single","question":"Bir necha yashirin qatlamli model yaratayotgan dasturchi tezroq va samaraliroq natijaga erishish uchun qaysi strategiyani tanlashi kerak?","options":["Yashirin qatlamlarda ReLU, chiqish qatlamida Sigmoid ishlatish.","Yashirin qatlamlarda Sigmoid, chiqish qatlamida ReLU ishlatish.","Barcha qatlamlarda faqat Tanh ishlatish.","Barcha qatlamlarda faqat Sigmoid ishlatish."],"correct_answer":"Yashirin qatlamlarda ReLU, chiqish qatlamida Sigmoid ishlatish."},{"id":54,"type":"multiple","question":"Modelni o'qitish jarayonida uning aniqligini oshirish uchun neyron tarmoqning qaysi elementlari doimiy ravishda o'zgartirib (yangilanib) boriladi?","options":["Aktivlashtirish funksiyasi","Biaslar","Kiruvchi qiymatlar","Vaznlar"],"correct_answer":["Biaslar","Vaznlar"]},{"id":55,"type":"single","question":"Nima uchun GPU'lar chuqur o'qitish jarayonini sezilarli darajada tezlashtiradi?","options":["Ular faqat matnli ma'lumotlar uchun maxsus ishlab chiqilgan","Ular minglab vazifalarni parallel ravishda bajara oladi.","Ularning xotirasi TPU'larnikidan kattaroq.","Ular markaziy protsessorlarga (CPU) qaraganda arzonroq."],"correct_answer":"Ular minglab vazifalarni parallel ravishda bajara oladi."},{"id":56,"type":"single","question":"Quyidagi atamalarni eng tor ixtisoslashgani ko'rsating.","options":["AI","DL","FL","ML"],"correct_answer":"DL"},{"id":57,"type":"single","question":"Tarmoq komponentlarini ularning ta'riflari bilan moslashtiring. Qaysi biri aktivlashtirish funksiyasi?","options":["Kiruvchi qiymatlar ustida matematik hisob-kiroblar amalga oshiriladi","Yakuniy natija yoki bashoratni taqdim qiladi?","Dastlabki ma'lumotlarni qabul qiladi","Modelga nochiziqlilik kiritadi"],"correct_answer":"Modelga nochiziqlilik kiritadi"},{"id":58,"type":"single","question":"Perceptron modeli birinchi marta kim tomonidan taklif qilingan?","options":["Frank Rosenblatt","Geoffrey Hinton","Alan Turing","Yann LeCun"],"correct_answer":"Frank Rosenblatt"},{"id":59,"type":"ordering","question":"Sigmoid funksiyasi yordamida yakuniy ehtimollikni hisoblash qadamlarini to'g'ri ketma-ketlikda joylashtiring.","options":["x, w va b o'zgaruvchilarni e'lon qilish","z = w[0]*x[0] + w[1]*x[1] + b hisoblash","Sigmoid(z) funksiyasini e'lon qilish","Sigmoid(z) funksiyasini chaqirib natijani olish"],"correct_answer":["x, w va b o'zgaruvchilarni e'lon qilish","z = w[0]*x[0] + w[1]*x[1] + b hisoblash","Sigmoid(z) funksiyasini e'lon qilish","Sigmoid(z) funksiyasini chaqirib natijani olish"]},{"id":60,"type":"single","question":"Neyron tarmoqlarni o'qitishda 'loss function' nima uchun kerak?","options":["Qatlamlarni ko'paytirish uchun","Modelni tezlashtirish uchun","Xatolikni o'lchash uchun","Ma'lumotni saqlash uchun","Qatlamlarni kamaytirish uchun"],"correct_answer":"Xatolikni o'lchash uchun"},{"id":61,"type":"text","question":"Neyron ikkita kiruvchi ma'lumot qabul qiladi: x1=2, x2=4. Tegishli vaznlar: w1=0.5, w2=0.75. Bias esa b=1. Aktivlashtirish funksiyasi qo'llanilishidan oldin chiziqli hisoblash natijasi qanday bo'ladi?","options":null,"correct_answer":"5"},{"id":62,"type":"matching","question":"Aktivatsiya funksiyalarini ularning xususiyatlari bilan juftlashtiring:","options":null,"correct_answer":{"Tanh":"Chiqishni -1 va +1 orasiga siqadi; 0 atrofida simmetrik","Softmax":"Ko'p sinf klassifikatsiyasida ehtimolliklar yig'indisi = 1","Sigmoid":"Chiqishni 0 va 1 orasiga siqadi; ikkilik klassifikatsiyada ishlatiladi","ReLU":"Manfiy kirish = 0, musbat kirish = o'zi; eng tez ishlaydigan"}},{"id":63,"type":"single","question":"ReLU aktivatsiya funksiyasi qanday ishlaydi?","options":["Manfiy kirishni 0 ga, musbat kirishni o'ziga teng qilib chiqaradi","Kirishni -1 va +1 orasiga siqadi","Kirishning mutlaq qiymatini qaytaradi","Barcha kirishni 0 va 1 orasiga siqadi"],"correct_answer":"Manfiy kirishni 0 ga, musbat kirishni o'ziga teng qilib chiqaradi"},{"id":64,"type":"matching","question":"Quyidagi tushunchalarni ularning ta'riflari bilan juftlashtiring:","options":null,"correct_answer":{"Kirish qatlami (Input Layer)":"Xom ma'lumotlarni (piksellar, raqamlar, so'zlar) qabul qiladi","Aktivatsiya funksiyasi":"Neyronni \"o'chirish yoki yoqish\"ni hal qiladi","Chiqish qatlami (Output Layer)":"Yakuniy bashoratni (sinf yoki qiymat) chiqaradi","Yashirin qatlamlar (Hidden Layers)":"Xususiyatlarni bosqichma-bosqich o'rganadi"}},{"id":65,"type":"single","question":"Loss funksiyasining maqsadi nima?","options":["Neyronlarni aktivlashtirish","Modelning bashorat xatosini o'lchash","Ma'lumotlarni normallashtirish","Og'irliklarni boshlang'ich qiymatga sozlash"],"correct_answer":"Modelning bashorat xatosini o'lchash"},{"id":66,"type":"text","question":"Chuqur o'qitishda \"yashirin qatlamlar\" inglizcha qanday ataladi?","options":null,"correct_answer":"hidden layers"},{"id":67,"type":"single","question":"MNIST ma'lumotlar to'plamida har bir rasm nechinchi o'lchamda?","options":["64×64 piksel (4096 xususiyat)","28×28 piksel (784 xususiyat)","32×32 piksel (1024 xususiyat)","16×16 piksel (256 xususiyat)"],"correct_answer":"28×28 piksel (784 xususiyat)"},{"id":68,"type":"single","question":"Quyidagi aktivatsiya funksiyalaridan qaysi biri chiqishni -1 va 1 orasiga siqadi?","options":["Softmax","Tanh","ReLU","Sigmoid"],"correct_answer":"Tanh"},{"id":69,"type":"single","question":"Adam optimizer qaysi ikkita usulni birlashtiradi?","options":["ReLU va Sigmoid","SGD va Dropout","Momentum va RMSProp","Forward pass va Backward pass"],"correct_answer":"Momentum va RMSProp"},{"id":70,"type":"single","question":"Backpropagation algoritmida xato signali qaysi yo'nalishda uzatiladi?","options":["Chiqish qatlamidan kirish qatlamiga qarab (o'ngdan chapga)","Tasodifiy yo'nalishda","Kirish qatlamidan chiqish qatlamiga qarab (chapdan o'ngga)","Faqat yashirin qatlamlar orasida"],"correct_answer":"Chiqish qatlamidan kirish qatlamiga qarab (o'ngdan chapga)"},{"id":71,"type":"single","question":"Overfitting muammosi qanday holatni bildiradi?","options":["Model juda tez o'rganadi","Loss funksiya nolga teng bo'ladi","Model faqat o'quv ma'lumotini yodlab qoladi, yangi ma'lumotda yomon ishlaydi","Model umuman o'qimaydi"],"correct_answer":"Model faqat o'quv ma'lumotini yodlab qoladi, yangi ma'lumotda yomon ishlaydi"},{"id":72,"type":"text","question":"Ko'p qatlamli perseptron ning inglizcha qisqartmasi nima?","options":null,"correct_answer":"MLP"},{"id":73,"type":"single","question":"Forward propagation jarayonida nima sodir bo'ladi?","options":["Loss funksiya hisoblanadi","Xato signali o'ngdan chapga uzatiladi","Ma'lumot kirish qatlamidan chiqish qatlamiga qarab qayta ishlanadi","Og'irliklar yangilanadi"],"correct_answer":"Ma'lumot kirish qatlamidan chiqish qatlamiga qarab qayta ishlanadi"},{"id":74,"type":"matching","question":"Optimizerlarni ularning asosiy xususiyatlari bilan juftlashtiring:","options":null,"correct_answer":{"RMSProp":"Har bir parametr uchun moslashuvchan learning rate","Leaky ReLU":"\"O'lik ReLU\" muammosini hal qilish uchun manfiy qiymatlar uchun kichik gradient","SGD (Stochastic Gradient Descent)":"Oddiy va tez; lekin tebranish va lokal minimumga tushish xavfi bor","Adam":"Momentum va RMSProp ning kombinatsiyasi; ko'p hollarda eng yaxshi ishlaydi"}},{"id":75,"type":"text","question":"Modelni o'qitishda bir to'liq davr (barcha o'quv ma'lumotlari bir marta ko'rib chiqilganda) qanday ataladi?","options":null,"correct_answer":"epoch"},{"id":76,"type":"matching","question":"Loss funksiyalarini ularning qo'llanish sohalari bilan juftlashtiring:","options":null,"correct_answer":{"MSE (Mean Squared Error)":"Regressiya masalalari uchun","MAE (Mean Absolute Error)":"Tashqi qiymatlarga (outlier) chidamli regressiya uchun","Binary Cross-Entropy":"Ikkilik klassifikatsiya (ha/yo'q) uchun","Cross-Entropy":"Ko'p sinf klassifikatsiyasi uchun"}},{"id":77,"type":"matching","question":"O'qitish bosqichlarini to'g'ri tartib bilan juftlashtiring:","options":null,"correct_answer":{"1-qadam":"Forward pass: kirish ma'lumotini tarmoq orqali o'tkazish","2-qadam":"Loss hisoblash: bashorat va haqiqiy javob orasidagi farq","3-qadam":"Backward pass: xato gradientini o'ngdan chapga tarqatish","4-qadam":"Og'irlik yangilash: optimizer yordamida parametrlarni moslashtirish"}},{"id":78,"type":"single","question":"\"Chuqur\" (Deep) so'zi neyron tarmoqda nimani anglatadi?","options":["Tarmoqning hisoblash tezligini","Ma'lumotlar hajmini","Og'irliklar qiymatlarining katta ekanligini","Yashirin qatlamlar sonining ko'pligini"],"correct_answer":"Yashirin qatlamlar sonining ko'pligini"},{"id":79,"type":"single","question":"Quyidagi aktivatsiya funksiyalaridan qaysi biri chiqishni 0 va 1 orasiga siqadi?","options":["ReLU","Softmax","Sigmoid","Tanh"],"correct_answer":"Sigmoid"},{"id":80,"type":"text","question":"Qaysi faollashtirish funksiyasi nolga markazlashtirilgan funksiya sanaladi?","options":null,"correct_answer":"tanh"},{"id":81,"type":"matching","question":"Faollashtirish funksiyalarini chiqish diapazonlari bilan moslashtiring:","options":null,"correct_answer":{"Softmax":"(0, 1)","Tanh":"(-1, 1)","ReLU":"[0, ∞)","Sigmoid":"(0, 1)"}},{"id":82,"type":"text","question":"Deep learningda ma'lumotlar to'plami qatorlarini bir nechta bo'lakka bo'lib, neyron tarmoqqa uzatiladi. Ushbu bo'laklar nima deb ataladi?","options":null,"correct_answer":"batch"},{"id":83,"type":"matching","question":"Faollashtirish funksiyalarini afzalliklari bilan moslashtiring:","options":null,"correct_answer":{"Tanh":"Nol markazlashtirilgan chiqish","ReLU":"Gradient yo'qolishini oldini oladi","ELU":"O'lik ReLU muammosini kamaytiradi","Swish":"Gradient oqimini yaxshiroq saqlaydi"}},{"id":84,"type":"matching","question":"Algoritmlarni vazifalari bilan moslashtiring:","options":null,"correct_answer":{"Loss function":"Xatoni hisoblash","Gradient descent":"Xatoni kamaytirish","Forward propagation":"Bashorat hosil qilish","Backward propagation":"Og'irliklarni yangilash"}},{"id":85,"type":"matching","question":"Faollashtirish funksiyalarini asosiy qo'llanilishi bilan moslashtiring:","options":null,"correct_answer":{"ReLU":"CNN yashirin qatlamlari","Swish":"Gradient oqimini yaxshiroq saqlaydi","Softmax":"Ko'p klassli tasniflash chiqish qatlami","Sigmoid":"Binary classification","ELU":"Self-normalizing tarmoqlar"}},{"id":86,"type":"matching","question":"Faollashtirish funksiyalarini kamchiliklari bilan moslashtiring:","options":null,"correct_answer":{"GELU":"Hisoblash sekinroq","Tanh":"Chuqur tarmoqlarda samaradorlik past","Sigmoid":"Gradient yo'qolishi","ReLU":"Dying ReLU muammosi"}},{"id":87,"type":"single","question":"Pooling qatlamining asosiy vazifasi nima?","options":["Tasvir o'lchamini kamaytirish va hisoblashni tezlashtirish","Piksellar sonini ko'paytirish","Tasvirning rangini o'zgartirish","Tasvirni 2D vektorga aylantirish","Tasvirni 1D vektorga aylantirish"],"correct_answer":"Tasvir o'lchamini kamaytirish va hisoblashni tezlashtirish"},{"id":88,"type":"text","question":"4×4 kirishdan 2×2 chiqish hosil qilinayotgan max pooling misolida (max(1,3,5,6)=6), qadam yoki siljish nechchiga teng (stride)?","options":null,"correct_answer":"2"},{"id":89,"type":"matching","question":"Ma'lumotlar to'plami (Datasets)ni ta'riflang.","options":null,"correct_answer":{"ImageNet":"14 milliondan ortiq tasvirlardan iborat ulkan ma'lumotlar to'plami","MNIST":"70,000 ta qo'lda yozilgan raqamlar to'plami","CIFAR-10":"10 ta klassga oid 60,000 ta kichik rangli tasvirlar"}},{"id":90,"type":"single","question":"\"Skip connections\" tushunchasi qaysi modelning o'ziga xos xususiyati hisoblanadi?","options":["MobileNet","VGG-16","AlexNet","ResNet","EfficientNet"],"correct_answer":"ResNet"},{"id":91,"type":"matching","question":"Quyidagi CNN qatlamlarini ularning vazifasi bilan moslashtirin.","options":null,"correct_answer":{"Konvolyutsiya":"Xususiyatlarni (nuqta, shakl, texture) ajratib olish","Pooling":"O'lchamni qisqartirish","Fully Connected":"Yakuniy klassifikatsiya qarorini qabul qilish"}},{"id":92,"type":"single","question":"CNN arxitekturasida \"Feature Map\" (Belgilar xaritasi) qaysi qatlamda hosil bo'ladi?","options":["Pooling qatlami","Softmax qatlami","Konvolyutsiya qatlami","Flatten qatlami"],"correct_answer":"Konvolyutsiya qatlami"},{"id":93,"type":"matching","question":"Amaliy kutubxonalar ta'riflarini toping","options":null,"correct_answer":{"Keras":"Yuqori darajadagi interfeys, neyron tarmoqlarni tezkor yaratish uchun","TensorFlow":"Google tomonidan yaratilgan, ko'p platformaga mo'ljallangan framework","PyTorch":"Meta tomonidan yaratilgan, tadqiqotchilar uchun qulay framework"}},{"id":94,"type":"text","question":"CIFAR-10 ma'lumotlar to'plami nechta klassdan iborat?","options":null,"correct_answer":"10"},{"id":95,"type":"matching","question":"Model parametrlarini vazifalarini aniqlashtiring","options":null,"correct_answer":{"Batch Size":"Bir vaqtning o'zida o'qitishga yuboriladigan namunalar soni","Filter Size":"Lokal xususiyatlarni ko'rish maydoni","Learning Rate":"Modelning xatolarni tuzatish tezligi/qadami"}},{"id":96,"type":"text","question":"CIFAR-10 to'plamidagi rangli tasvirlar nechtadan kanalga yoki rangga ega?","options":null,"correct_answer":"3"},{"id":97,"type":"matching","question":"Jarayonlarni ularga mos algoritmlar bilan moslang:","options":null,"correct_answer":{"Vaznlarni yangilash":"Gradient Descent (Optimizer)","Modelni o'qitish (Error back)":"Backpropagation Through Time (BPTT)","Bashorat qilish (Oldinga)":"Forward Propagation","Xatolikni o'lchash":"Cross-Entropy Loss"}},{"id":98,"type":"single","question":"Ko'p klassli klassifikatsiyada qaysi xatolik funksiyasi ishlatiladi?","options":["Absolute Error","Mean Squared Error","Binary Cross-entropy","Categorical Cross-entropy"],"correct_answer":"Categorical Cross-entropy"},{"id":99,"type":"matching","question":"RNN qismlarini ularning asosiy vazifalari bilan moslang","options":null,"correct_answer":{"Input Layer (x_t)":"Joriy vaqtdagi ma'lumotni qabul qilish","Output Layer (y_t)":"Bashorat natijasini shakllantirish","Hidden State (h_t)":"O'tmishdagi ma'lumotlarni saqlash (Xotira)","Activation Function":"Chiziqli bo'lmagan bog'liqlikni ta'minlash"}},{"id":100,"type":"single","question":"Batch Normalization RNN-da nima uchun qo'llaniladi?","options":["Klasslar sonini oshirish","Rasm sifatini yaxshilash","O'qitishni tezlashtirish va barqarorlashtirish","Xotirani o'chirish"],"correct_answer":"O'qitishni tezlashtirish va barqarorlashtirish"}];
+let cur=0,ans={},scOk=0,scBad=0,dragSrc=null;
+const TL={single:"Bir javobli",multiple:"Ko'p javobli",text:"Matnli",fill_in:"To'ldiring",matching:"Juftlashtirish",ordering:"Tartibga soling"};
+const BC={single:"bs",multiple:"bm",text:"bt",fill_in:"bf",matching:"bM",ordering:"bo"};
+
+function h(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function norm(s){return String(s).trim().toLowerCase().replace(/\s+/g," ");}
+function shuf(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+function buildDots(){
+  const w=document.getElementById("nd");w.innerHTML="";
+  Q.forEach((q,i)=>{
+    const b=document.createElement("button");
+    b.textContent=i+1;b.dataset.i=i;
+    w.appendChild(b);
+  });
+  w.addEventListener("click",e=>{
+    const b=e.target.closest("button");
+    if(b){cur=+b.dataset.i;render();}
+  });
+  syncDots();
+}
+
+function syncDots(){
+  document.querySelectorAll("#nd button").forEach((b,i)=>{
+    b.className="";
+    const a=ans[Q[i].id];
+    if(i===cur) b.classList.add("act");
+    if(a?.checked && a.correct===true)  b.classList.add("aok");
+    if(a?.checked && a.correct===false) b.classList.add("abad");
+  });
+}
+
+function updHUD(){
+  const done=Object.keys(ans).length;
+  const pct=Q.length?(done/Q.length*100):0;
+  document.getElementById("pf").style.width=pct+"%";
+  document.getElementById("pt").textContent=done+" / "+Q.length;
+  document.getElementById("sc").textContent=scOk;
+  document.getElementById("sw").textContent=scBad;
+  document.getElementById("sr").textContent=Q.length-done;
+}
+
+/* ---- RENDER ---- */
+function render(){
+  syncDots();
+  const q=Q[cur],st=ans[q.id],ck=st?.checked||false;
+  let body="";
+  if(q.type==="single")   body=rSingle(q,st,ck);
+  else if(q.type==="multiple") body=rMulti(q,st,ck);
+  else if(q.type==="text")     body=rText(q,st,ck);
+  else if(q.type==="fill_in")  body=rFill(q,st,ck);
+  else if(q.type==="matching") body=rMatch(q,st,ck);
+  else if(q.type==="ordering") body=rOrder(q,st,ck);
+
+  document.getElementById("qw").innerHTML=`
+<div class="qc">
+  <div class="qm"><span class="qn">#${q.id}</span><span class="badge ${BC[q.type]}">${TL[q.type]||q.type}</span></div>
+  <div class="qt">${h(q.question)}</div>
+  ${body}
+  ${ck?buildFB(q,st.correct):""}
+  <div class="qa">
+    <button class="btn bpv" id="bpv" ${cur===0?"disabled":""}>← Oldingi</button>
+    <button class="btn bchk" id="bchk" ${ck?"disabled":""} >${ck?"Tekshirildi ✓":"Tekshirish"}</button>
+    <button class="btn bnx" id="bnx" ${cur===Q.length-1?"disabled":""}>Keyingi →</button>
+  </div>
+</div>`;
+
+  document.getElementById("bpv").onclick=()=>{cur=Math.max(0,cur-1);render();};
+  document.getElementById("bnx").onclick=()=>{cur=Math.min(Q.length-1,cur+1);render();};
+  document.getElementById("bchk").onclick=chk;
+
+  if(q.type==="ordering"&&!ck) setupDrag(q);
+  updHUD();
+}
+
+/* ---- TYPE RENDERERS ---- */
+function rSingle(q,st,ck){
+  const uv=st?.value;
+  return "<div class='opts'>"+q.options.map(o=>{
+    let c="opt";
+    if(!ck&&uv===o) c+=" sel";
+    if(ck){if(o===q.correct_answer)c+=" ok";else if(o===uv)c+=" bad";}
+    const t=(ck&&o===q.correct_answer)?"✓":(ck&&o===uv)?"✕":(!ck&&uv===o)?"✓":"";
+    return `<div class="${c}${ck?" locked":""}" data-opt="${h(o)}"><div class="tick">${t}</div><span class="ol">${h(o)}</span></div>`;
+  }).join("")+"</div>";
+}
+
+function rMulti(q,st,ck){
+  const uv=st?.value||[];
+  const ca=Array.isArray(q.correct_answer)?q.correct_answer:[q.correct_answer];
+  return "<div class='opts'>"+q.options.map(o=>{
+    let c="opt mul";
+    if(!ck&&uv.includes(o)) c+=" sel";
+    if(ck){
+      if(ca.includes(o)&&uv.includes(o))c+=" ok";
+      else if(!ca.includes(o)&&uv.includes(o))c+=" bad";
+      else if(ca.includes(o))c+=" shw";
+    }
+    const t=uv.includes(o)?"✓":"";
+    return `<div class="${c}${ck?" locked":""}" data-opt="${h(o)}"><div class="tick">${t}</div><span class="ol">${h(o)}</span></div>`;
+  }).join("")+"</div>";
+}
+
+function rText(q,st,ck){
+  const v=st?.value||"",c=ck?(st?.correct?"ok":"bad"):"";
+  return `<input type="text" class="${c}" id="ti" placeholder="Javobingizni yozing..." value="${h(v)}" ${ck?"disabled":""}>`;
+}
+
+function rFill(q,st,ck){
+  const uv=st?.value||{};
+  return "<div class='fg'>"+Object.keys(q.correct_answer).map(k=>{
+    const v=uv[k]||"",ok2=ck&&norm(v)===norm(q.correct_answer[k]),c=ck?(ok2?"ok":"bad"):"";
+    return `<div class="fr"><span class="fk">${h(k)}</span><input type="text" class="fi ${c}" id="fi_${h(k)}" value="${h(v)}" placeholder="${h(k)}..." ${ck?"disabled":""}></div>`;
+  }).join("")+"</div>";
+}
+
+function rMatch(q,st,ck){
+  const ca=q.correct_answer,prompts=Object.keys(ca),opts=shuf(Object.values(ca)),uv=st?.value||{};
+  return "<div class='mg'>"+prompts.map((p,i)=>{
+    const ch=uv[p]||"",ok2=ck&&ch===ca[p],c=ck?(ok2?"ok":"bad"):"";
+    const optHtml=opts.map(o=>`<option value="${h(o)}"${ch===o?" selected":""}>${h(o)}</option>`).join("");
+    return `<div class="mr"><div class="mp">${h(p)}</div><span class="ma">→</span>
+      <select class="${c}" id="ms${i}" ${ck?"disabled":""}><option value="">Tanlang...</option>${optHtml}</select></div>`;
+  }).join("")+"</div>";
+}
+
+function rOrder(q,st,ck){
+  const order=st?.value||[...q.options];
+  return "<div class='ol-list' id='ollist'>"+order.map((item,i)=>{
+    const ok2=ck&&item===q.correct_answer[i],c=ck?(ok2?" ok":" bad"):"";
+    return `<div class="oi${c}" draggable="${!ck}" data-i="${i}">
+      <span class="oh">⠿</span><span class="on">${i+1}</span><span>${h(item)}</span></div>`;
+  }).join("")+"</div>";
+}
+
+/* ---- FEEDBACK ---- */
+function buildFB(q,ok){
+  const cls=ok?"ok":"bad",lbl=ok?"To'g'ri!":"Noto'g'ri!",icon=ok?"✓":"✕";
+  let det="";
+  if(!ok){
+    if(q.type==="single"||q.type==="text")
+      det=`<div class="fba">To'g'ri javob: <strong>${h(String(q.correct_answer))}</strong></div>`;
+    else if(q.type==="multiple")
+      det=`<div class="fba">To'g'ri: <strong>${h(q.correct_answer.join(", "))}</strong></div>`;
+    else if(q.type==="fill_in"){
+      const rows=Object.entries(q.correct_answer).map(([k,v])=>`<tr><td>${h(k)}</td><td><strong>${h(v)}</strong></td></tr>`).join("");
+      det=`<div class="fba"><table class="at">${rows}</table></div>`;
+    }else if(q.type==="matching"){
+      const rows=Object.entries(q.correct_answer).map(([k,v])=>`<tr><td>${h(k)}</td><td>→ <strong>${h(v)}</strong></td></tr>`).join("");
+      det=`<div class="fba"><table class="at">${rows}</table></div>`;
+    }else if(q.type==="ordering")
+      det=`<div class="fba">To'g'ri tartib: <strong>${h(q.correct_answer.join(" → "))}</strong></div>`;
+  }
+  return `<div class="fb ${cls} show"><span class="fbi">${icon}</span><div><div class="fbl">${lbl}</div>${det}</div></div>`;
+}
+
+/* ---- DRAG (ordering) ---- */
+function setupDrag(q){
+  const list=document.getElementById("ollist");
+  if(!list)return;
+  if(!ans[q.id])ans[q.id]={value:[...q.options],checked:false};
+  list.querySelectorAll(".oi").forEach((el,i)=>{
+    el.addEventListener("dragstart",()=>{dragSrc=i;el.classList.add("dragging");});
+    el.addEventListener("dragend",()=>el.classList.remove("dragging"));
+    el.addEventListener("dragover",e=>{e.preventDefault();el.classList.add("drag-over");});
+    el.addEventListener("dragleave",()=>el.classList.remove("drag-over"));
+    el.addEventListener("drop",e=>{
+      e.preventDefault();el.classList.remove("drag-over");
+      if(dragSrc===null||dragSrc===i)return;
+      const arr=ans[q.id].value;
+      const mv=arr.splice(dragSrc,1)[0];arr.splice(i,0,mv);dragSrc=null;
+      list.innerHTML=arr.map((item,idx)=>
+        `<div class="oi" draggable="true" data-i="${idx}">
+          <span class="oh">⠿</span><span class="on">${idx+1}</span><span>${h(item)}</span></div>`
+      ).join("");
+      setupDrag(q);
+    });
+  });
+}
+
+/* ---- OPTION CLICK (event delegation) ---- */
+document.addEventListener("click",e=>{
+  const el=e.target.closest(".opt:not(.locked)");
+  if(!el)return;
+  const q=Q[cur];
+  const opt=el.dataset.opt;
+  if(q.type==="single"){
+    document.querySelectorAll(".opt").forEach(o=>{o.classList.remove("sel");o.querySelector(".tick").textContent="";});
+    el.classList.add("sel");el.querySelector(".tick").textContent="✓";
+    if(!ans[q.id])ans[q.id]={};
+    ans[q.id].value=opt;ans[q.id].checked=false;
+  }else if(q.type==="multiple"){
+    if(!ans[q.id])ans[q.id]={value:[],checked:false};
+    const arr=ans[q.id].value,idx=arr.indexOf(opt);
+    if(idx>=0){arr.splice(idx,1);el.classList.remove("sel");el.querySelector(".tick").textContent="";}
+    else{arr.push(opt);el.classList.add("sel");el.querySelector(".tick").textContent="✓";}
+  }
+});
+
+/* ---- CHECK ---- */
+function chk(){
+  const q=Q[cur];let uv=ans[q.id]?.value,ok=false;
+  if(q.type==="single"){
+    if(!uv){alert("Javob tanlang!");return;}
+    ok=uv===q.correct_answer;
+  }else if(q.type==="multiple"){
+    if(!uv||!uv.length){alert("Kamida bir javob tanlang!");return;}
+    const ca=Array.isArray(q.correct_answer)?q.correct_answer:[q.correct_answer];
+    ok=ca.length===uv.length&&ca.every(c=>uv.includes(c));
+  }else if(q.type==="text"){
+    const inp=document.getElementById("ti");
+    uv=inp?inp.value.trim():(uv||"");
+    if(!uv){alert("Javob yozing!");return;}
+    ok=norm(uv)===norm(String(q.correct_answer));
+  }else if(q.type==="fill_in"){
+    if(!ans[q.id])ans[q.id]={value:{},checked:false};
+    const keys=Object.keys(q.correct_answer);let allFilled=true;
+    keys.forEach(k=>{
+      const inp=document.getElementById("fi_"+k);
+      const v=inp?inp.value.trim():"";
+      if(!v)allFilled=false;
+      ans[q.id].value[k]=v;
+    });
+    if(!allFilled){alert("Barcha maydonlarni to'ldiring!");return;}
+    uv=ans[q.id].value;
+    ok=keys.every(k=>norm(uv[k])===norm(q.correct_answer[k]));
+  }else if(q.type==="matching"){
+    if(!ans[q.id])ans[q.id]={value:{},checked:false};
+    const prompts=Object.keys(q.correct_answer);let allSel=true;
+    prompts.forEach((p,i)=>{
+      const sel=document.getElementById("ms"+i);
+      const v=sel?sel.value:"";
+      if(!v)allSel=false;
+      ans[q.id].value[p]=v;
+    });
+    if(!allSel){alert("Barcha juftliklarni tanlang!");return;}
+    uv=ans[q.id].value;
+    ok=prompts.every(p=>uv[p]===q.correct_answer[p]);
+  }else if(q.type==="ordering"){
+    if(!ans[q.id])ans[q.id]={value:[...q.options],checked:false};
+    uv=ans[q.id].value;
+    ok=q.correct_answer.every((item,i)=>item===uv[i]);
+  }
+  ans[q.id]={value:uv,correct:ok,checked:true};
+  if(ok)scOk++;else scBad++;
+  const allDone=Object.keys(ans).length===Q.length&&Object.values(ans).every(a=>a.checked);
+  if(allDone){render();setTimeout(showRes,600);}
+  else{render();if(ok&&cur<Q.length-1)setTimeout(()=>{cur++;render();},1200);}
+}
+
+/* ---- RESULTS ---- */
+function showRes(){
+  document.getElementById("qmain").style.display="none";
+  document.getElementById("hdr").style.display="none";
+  document.getElementById("sb").style.display="none";
+  const pct=Math.round(scOk/Q.length*100);
+  document.getElementById("rpct").textContent=pct+"%";
+  document.getElementById("rsc").textContent=scOk;
+  document.getElementById("rsw").textContent=scBad;
+  document.getElementById("rst").textContent=Q.length;
+  document.getElementById("rtit").textContent=pct>=80?"Ajoyib natija! 🎉":pct>=50?"Yaxshi urinish!":"Ko'proq mashq kerak.";
+  document.getElementById("res").style.display="block";
+}
+
+document.getElementById("rbtn").onclick=function(){
+  ans={};scOk=0;scBad=0;cur=0;
+  document.getElementById("res").style.display="none";
+  document.getElementById("hdr").style.display="flex";
+  document.getElementById("sb").style.display="flex";
+  document.getElementById("qmain").style.display="block";
+  buildDots();render();
+};
+
+buildDots();render();
+
+</script>
+</body>
+</html>
