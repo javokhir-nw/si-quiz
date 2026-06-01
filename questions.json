@@ -3,7 +3,13 @@
     "id": 1,
     "type": "single",
     "question": "2000-yilda Professor Sintiya Breazeal ko'zlari, qoshlari, quloqlari va og'zi mavjud bo'lgan yuzi bilan inson his-tuyg'ularini taqlid qila oladigan birinchi robotni yaratdi. U robot qanday nom bilan atalgan?",
-    "options": ["AARON", "Deep Blue", "Qismet", "Sofiya", "Aliza"],
+    "options": [
+      "AARON",
+      "Deep Blue",
+      "Qismet",
+      "Sofiya",
+      "Aliza"
+    ],
     "correct_answer": "Qismet"
   },
   {
@@ -31,7 +37,12 @@
     "id": 5,
     "type": "single",
     "question": "Vizual idrok etish (ko'rish), nutqni anglash, qaror qabul qilish va tarjima kabi odatda inson aql-zakovatini talab qiladigan vazifalarni bajarishga qodir kompyuter tizimlarini o'rganish va yaratish nima deyiladi",
-    "options": ["Machine Learning", "Deep Learning", "Sun'iy intellekt", "Fleep Learing"],
+    "options": [
+      "Machine Learning",
+      "Deep Learning",
+      "Sun'iy intellekt",
+      "Fleep Learing"
+    ],
     "correct_answer": "Sun'iy intellekt"
   },
   {
@@ -45,14 +56,25 @@
     "id": 7,
     "type": "single",
     "question": "2016-yilda Hanson Robotics kompaniyasi birinchi \"robot fuqarosi\" sifatida tanilgan .... ismli gumanoid robotni yaratdi va insonning real qiyofasi va his-tuyg'ularini ko'rish va takrorlash, shuningdek, muloqot qilish qobiliyatiga ega yaratilgan birinchi robot edi. Robot nomi nima edi?",
-    "options": ["Qismet", "Aliza", "Deep Blue", "AARON", "Sofiya"],
+    "options": [
+      "Qismet",
+      "Aliza",
+      "Deep Blue",
+      "AARON",
+      "Sofiya"
+    ],
     "correct_answer": "Sofiya"
   },
   {
     "id": 8,
     "type": "single",
     "question": "Kompyuterlarni to'g'ridan-to'g'ri dasturlanmasdan o'rganish qobiliyatiga ega bo'lishi nima deyiladi?",
-    "options": ["Deep Learning", "Fleep Learning", "Machine Learning", "Natural Learning"],
+    "options": [
+      "Deep Learning",
+      "Fleep Learning",
+      "Machine Learning",
+      "Natural Learning"
+    ],
     "correct_answer": "Machine Learning"
   },
   {
@@ -70,14 +92,26 @@
     "id": 10,
     "type": "single",
     "question": "1985-yilda ASIA konferensiyasida .... deb nomlanuvchi avtonom chizmachilik dasturi namoyish etildi. Robot nomi nima edi?",
-    "options": ["Aliza", "Qismet", "Deep Blue", "Sofiya", "AARON"],
+    "options": [
+      "Aliza",
+      "Qismet",
+      "Deep Blue",
+      "Sofiya",
+      "AARON"
+    ],
     "correct_answer": "AARON"
   },
   {
     "id": 11,
     "type": "single",
     "question": "1997-yilda Deep Blue shaxmat bo'yicha jahon chempioni Gari Kasparovni shaxmat o'yinida mag'lub etib, inson shaxmat chempionini mag'lub etgan birinchi dasturga aylandi. Deep Blue qaysi kompaniya tomonidan ishlab chiqilgan?",
-    "options": ["Facebook", "Microsoft", "IBM", "LISP", "Google"],
+    "options": [
+      "Facebook",
+      "Microsoft",
+      "IBM",
+      "LISP",
+      "Google"
+    ],
     "correct_answer": "IBM"
   },
   {
@@ -91,21 +125,36 @@
     "id": 13,
     "type": "single",
     "question": "1950-yilda Mashinalar o'ylay oladimi? degan savolni kim o'rtaga tashladi?",
-    "options": ["Alan Cisco", "Alan Turing", "Bill Geyts", "Natan Mayer Rotshild"],
+    "options": [
+      "Alan Cisco",
+      "Alan Turing",
+      "Bill Geyts",
+      "Natan Mayer Rotshild"
+    ],
     "correct_answer": "Alan Turing"
   },
   {
     "id": 14,
     "type": "single",
     "question": "Mashinali o'qitish uchun quyidagi ta'rifni kim bergan? Kompyuter dasturi T vazifadan E tajribani o'rganadi, bunda dastur effektivligi P orqali o'lchanadi, agar T vazifani yechishdagi effektivlik (ya'ni P orqali o'lchanuvchi) E tajriba orqali oshsa",
-    "options": ["Artur Samuel", "Alan Mitchel", "Alan Turing", "Tom Mitchel"],
+    "options": [
+      "Artur Samuel",
+      "Alan Mitchel",
+      "Alan Turing",
+      "Tom Mitchel"
+    ],
     "correct_answer": "Tom Mitchel"
   },
   {
     "id": 15,
     "type": "single",
     "question": "Nima shunday sohaki, bunda kompyuterlar to'g'ridan-to'g'ri dasturlanmasdan o'rganish qobiliyatiga ega bo'ladi?",
-    "options": ["Deep Learning", "Sun'iy intellekt", "Machine learning", "Data Sciense"],
+    "options": [
+      "Deep Learning",
+      "Sun'iy intellekt",
+      "Machine learning",
+      "Data Sciense"
+    ],
     "correct_answer": "Machine learning"
   },
   {
@@ -140,8 +189,17 @@
     "id": 18,
     "type": "multiple",
     "question": "Ushbu dataset quyidagi code asosida x qaysi ustunlarni model qurish uchun oladi?\nx = df.iloc[:, [2, 3]].values\ny = df.iloc[:, 4].values\n(Dataset: UserID, Gender, Age, EstimatedSalary, Purchased)",
-    "options": ["Age", "EstimatedSalary", "Gender", "User ID", "Purchased"],
-    "correct_answer": ["Age", "EstimatedSalary"]
+    "options": [
+      "Age",
+      "EstimatedSalary",
+      "Gender",
+      "User ID",
+      "Purchased"
+    ],
+    "correct_answer": [
+      "Age",
+      "EstimatedSalary"
+    ]
   },
   {
     "id": 19,
@@ -159,8 +217,16 @@
     "id": 20,
     "type": "multiple",
     "question": "Ushbu dataset quyidagi code asosida y qaysi ustunlarni model qurish uchun oladi?\nx = df.iloc[:, [2, 3]].values\ny = df.iloc[:, 4].values\n(Dataset: UserID, Gender, Age, EstimatedSalary, Purchased)",
-    "options": ["Gender", "User ID", "Age", "EstimatedSalary", "Purchased"],
-    "correct_answer": ["Purchased"]
+    "options": [
+      "Gender",
+      "User ID",
+      "Age",
+      "EstimatedSalary",
+      "Purchased"
+    ],
+    "correct_answer": [
+      "Purchased"
+    ]
   },
   {
     "id": 21,
@@ -282,7 +348,12 @@
     "id": 33,
     "type": "single",
     "question": "Mashinalarni inson kabi o'ylab qaror qabul qilishga undovchi intellekt - ?",
-    "options": ["AI", "DL", "ML", "IoT"],
+    "options": [
+      "AI",
+      "DL",
+      "ML",
+      "IoT"
+    ],
     "correct_answer": "AI"
   },
   {
@@ -301,14 +372,24 @@
     "id": 35,
     "type": "single",
     "question": "Hierarchical (iyerarxik) klasterlash qanday datasetlarga tavsiya qilinadi?",
-    "options": ["o'rta", "Xatolari ko'p datasetlar uchun", "katta", "kichik"],
+    "options": [
+      "o'rta",
+      "Xatolari ko'p datasetlar uchun",
+      "katta",
+      "kichik"
+    ],
     "correct_answer": "kichik"
   },
   {
     "id": 36,
     "type": "single",
     "question": "ML bajarishi mumkin bo'lgan barcha vazifalarni neyron tarmoqlari orqali bajarish - ?",
-    "options": ["AI", "IoT", "ML", "DL"],
+    "options": [
+      "AI",
+      "IoT",
+      "ML",
+      "DL"
+    ],
     "correct_answer": "DL"
   },
   {
@@ -338,7 +419,10 @@
     "id": 39,
     "type": "single",
     "question": "K-means algoritmining maqsadi SDE (kvadratik xatolik) qiymatini maksimal darajaga ko'tarishdir.",
-    "options": ["True", "False"],
+    "options": [
+      "True",
+      "False"
+    ],
     "correct_answer": "False"
   },
   {
@@ -405,14 +489,24 @@
     "id": 45,
     "type": "single",
     "question": "Unsupervised Learningda ma'lumotlarga nima berilmaydi?",
-    "options": ["Qiymat", "label", "Empty", "Null"],
+    "options": [
+      "Qiymat",
+      "label",
+      "Empty",
+      "Null"
+    ],
     "correct_answer": "label"
   },
   {
     "id": 46,
     "type": "single",
     "question": "Mashinalarning to'g'ridan-to'g'ri dasturlashsiz vazifalarni bajarish qobiliyati - ?",
-    "options": ["AI", "IoT", "DL", "ML"],
+    "options": [
+      "AI",
+      "IoT",
+      "DL",
+      "ML"
+    ],
     "correct_answer": "AI"
   },
   {
@@ -502,8 +596,16 @@
     "id": 54,
     "type": "multiple",
     "question": "Modelni o'qitish jarayonida uning aniqligini oshirish uchun neyron tarmoqning qaysi elementlari doimiy ravishda o'zgartirib (yangilanib) boriladi?",
-    "options": ["Aktivlashtirish funksiyasi", "Biaslar", "Kiruvchi qiymatlar", "Vaznlar"],
-    "correct_answer": ["Biaslar", "Vaznlar"]
+    "options": [
+      "Aktivlashtirish funksiyasi",
+      "Biaslar",
+      "Kiruvchi qiymatlar",
+      "Vaznlar"
+    ],
+    "correct_answer": [
+      "Biaslar",
+      "Vaznlar"
+    ]
   },
   {
     "id": 55,
@@ -521,7 +623,12 @@
     "id": 56,
     "type": "single",
     "question": "Quyidagi atamalarni eng tor ixtisoslashgani ko'rsating.",
-    "options": ["AI", "DL", "FL", "ML"],
+    "options": [
+      "AI",
+      "DL",
+      "FL",
+      "ML"
+    ],
     "correct_answer": "DL"
   },
   {
@@ -540,7 +647,12 @@
     "id": 58,
     "type": "single",
     "question": "Perceptron modeli birinchi marta kim tomonidan taklif qilingan?",
-    "options": ["Frank Rosenblatt", "Geoffrey Hinton", "Alan Turing", "Yann LeCun"],
+    "options": [
+      "Frank Rosenblatt",
+      "Geoffrey Hinton",
+      "Alan Turing",
+      "Yann LeCun"
+    ],
     "correct_answer": "Frank Rosenblatt"
   },
   {
@@ -651,7 +763,12 @@
     "id": 68,
     "type": "single",
     "question": "Quyidagi aktivatsiya funksiyalaridan qaysi biri chiqishni -1 va 1 orasiga siqadi?",
-    "options": ["Softmax", "Tanh", "ReLU", "Sigmoid"],
+    "options": [
+      "Softmax",
+      "Tanh",
+      "ReLU",
+      "Sigmoid"
+    ],
     "correct_answer": "Tanh"
   },
   {
@@ -768,7 +885,12 @@
     "id": 79,
     "type": "single",
     "question": "Quyidagi aktivatsiya funksiyalaridan qaysi biri chiqishni 0 va 1 orasiga siqadi?",
-    "options": ["ReLU", "Softmax", "Sigmoid", "Tanh"],
+    "options": [
+      "ReLU",
+      "Softmax",
+      "Sigmoid",
+      "Tanh"
+    ],
     "correct_answer": "Sigmoid"
   },
   {
@@ -881,7 +1003,13 @@
     "id": 90,
     "type": "single",
     "question": "\"Skip connections\" tushunchasi qaysi modelning o'ziga xos xususiyati hisoblanadi?",
-    "options": ["MobileNet", "VGG-16", "AlexNet", "ResNet", "EfficientNet"],
+    "options": [
+      "MobileNet",
+      "VGG-16",
+      "AlexNet",
+      "ResNet",
+      "EfficientNet"
+    ],
     "correct_answer": "ResNet"
   },
   {
@@ -990,5 +1118,1426 @@
       "Xotirani o'chirish"
     ],
     "correct_answer": "O'qitishni tezlashtirish va barqarorlashtirish"
+  },
+  {
+    "id": 101,
+    "type": "multiple",
+    "question": "Ma'lumotlar to'plamining quyidagi turlarini ko'rsating",
+    "options": [
+      "Yozib olingan ma'lumotlar",
+      "Maxsus belgilangan ma'lumotlar",
+      "Ustunlar",
+      "Satrlar",
+      "Atributlar"
+    ],
+    "correct_answer": [
+      "Yozib olingan ma'lumotlar",
+      "Maxsus belgilangan ma'lumotlar",
+      "Atributlar"
+    ]
+  },
+  {
+    "id": 102,
+    "type": "matching",
+    "question": "Intellektual agent turlariga mos misollarni ko'rsating",
+    "options": null,
+    "correct_answer": {
+      "Foydali dasturlarga asoslangan agent": "Netflix tavsiya tizimi",
+      "O'quv agenti": "Duolingo",
+      "Maqsadga asoslangan agent": "Shaxmat o'yinchi AI",
+      "Oddiy refleks agent": "Avtomatik chiroq",
+      "Modelga asoslangan refleks agent": "Aqlli konditsioner"
+    }
+  },
+  {
+    "id": 103,
+    "type": "multiple",
+    "question": "Yozib olingan ma'lumotlarga nimalar kiradi?",
+    "options": [
+      "Genetik ketma-ketlik ma'lumotlari",
+      "Asimmetrik ikkilik",
+      "Ketma-ket ma'lumotlar",
+      "Ikkilik",
+      "hujjat ma'lumotlari",
+      "tranzaksiya ma'lumotlari",
+      "Simetrik ikkilik",
+      "Fazoviy ma'lumotlar",
+      "ma'lumotlar matritsasi",
+      "Vaqtinchalik ma'lumotlar"
+    ],
+    "correct_answer": [
+      "hujjat ma'lumotlari",
+      "tranzaksiya ma'lumotlari",
+      "ma'lumotlar matritsasi"
+    ]
+  },
+  {
+    "id": 104,
+    "type": "text",
+    "question": "Intellektual agentlarni idrok etilgan aql va qobiliyat darajasiga qarab nechta turga ajratish mumkin?",
+    "options": null,
+    "correct_answer": "5"
+  },
+  {
+    "id": 105,
+    "type": "text",
+    "question": "Intellektual agentlar nechta katta guruhga bo'linadi?",
+    "options": null,
+    "correct_answer": "2"
+  },
+  {
+    "id": 106,
+    "type": "matching",
+    "question": "Ma'lumotlarning intellektual tahlilida ishlatiladigan terminlar ta'riflarini toping",
+    "options": null,
+    "correct_answer": {
+      "ma'lumotlar to'plamini tahlil va modellash uchun toza va ishonchli holatga keltirish jarayoni": "data cleaning",
+      "ma'lumotlar to'plamini tanib olish, uning xususiyatlarini ajratib olish, ma'lumotlar tuzilishini tahlil qilish uchun ularni qanday tayyorlash jarayoni": "data understanding",
+      "ma'lumotlarni intellektual tahlil qilish uchun tayyorlash jarayoni": "data processing",
+      "ma'lumotlarni oldindan qayta ishlash, ma'lumotlarni tahlil qilish va modellash uchun moslashtirish jarayoni": "data preparation",
+      "ma'lumot hajmini kamaytirish uchun ishlatiladigan jarayon": "data compression"
+    }
+  },
+  {
+    "id": 107,
+    "type": "single",
+    "question": "Intellektual agentlarda energiyani harakatga aylantiradigan mashinalarning tarkibiy qismi nima deyiladi?",
+    "options": [
+      "robot",
+      "aktuator",
+      "sensor",
+      "Effektor"
+    ],
+    "correct_answer": "aktuator"
+  },
+  {
+    "id": 108,
+    "type": "single",
+    "question": "Intellektual agentda atrof-muhit o'zgarishini aniqlaydigan va ma'lumotni boshqa elektron qurilmalarga yuboradigan qurilma nima deyiladi?",
+    "options": [
+      "sensor",
+      "robot",
+      "Effektor",
+      "aktuator"
+    ],
+    "correct_answer": "sensor"
+  },
+  {
+    "id": 109,
+    "type": "multiple",
+    "question": "Ma'lumotlar to'plamining turi bo'lgan Atribut ma'lumotlarga nimalar kiradi?",
+    "options": [
+      "Fazoviy ma'lumotlar",
+      "Genetik ketma-ketlik ma'lumotlari",
+      "Vaqtinchalik ma'lumotlar",
+      "tranzaksiya ma'lumotlari",
+      "ma'lumotlar matritsasi",
+      "Asimmetrik ikkilik",
+      "hujjat ma'lumotlari",
+      "Ikkilik",
+      "Ketma-ket ma'lumotlar",
+      "Simetrik ikkilik"
+    ],
+    "correct_answer": [
+      "Asimmetrik ikkilik",
+      "Ikkilik",
+      "Simetrik ikkilik"
+    ]
+  },
+  {
+    "id": 110,
+    "type": "matching",
+    "question": "Intellektual agent turlari va ularni ta'riflarini bir-biriga moslang",
+    "options": null,
+    "correct_answer": {
+      "Qaror va harakat jarayonida avvalgi biror-bir ma'lumotlarni hisobga olmaydi": "Oddiy refleks agent",
+      "O'tmish tajribasidan o'rganishi mumkin bo'lgan yoki o'rganish qobiliyatiga ega bo'lgan agent turi": "O'quv agenti",
+      "Har bir harakat maqsadga qanchalik samarali erishayotganini tekshirish uchun har bir holatni haqiqiy raqam bilan taqqoslaydi": "Foydali dasturlarga asoslangan agentlar",
+      "Maqsadga erishiladimi yoki yo'qmi, hal qilishdan oldin mumkin bo'lgan harakatlar ketma-ketligini ko'rib chiqadi": "Maqsadga asoslangan agentlar",
+      "Dunyoni bilish modeliga ega va modelga asoslanib harakatlarni amalga oshiradi": "Modelga asoslangan refleks agent"
+    }
+  },
+  {
+    "id": 111,
+    "type": "matching",
+    "question": "Dasturlash tillari logotiplarini ko'rsating (SQL, JavaScript, Matlab, Java logotiplari bo'yicha)",
+    "options": null,
+    "correct_answer": {
+      "SQL logotipi (ma'lumotlar bazasi belgisi)": "SQL",
+      "JavaScript logotipi (sariq-qora JS belgisi)": "Java Script",
+      "Matlab logotipi (to'lqin belgisi)": "Matlab",
+      "Java logotipi (qizil chashka belgisi)": "Java"
+    }
+  },
+  {
+    "id": 112,
+    "type": "multiple",
+    "question": "Maxsus belgilangan ma'lumotlarga nimalar kiradi?",
+    "options": [
+      "Fazoviy ma'lumotlar",
+      "Ketma-ket ma'lumotlar",
+      "Asimmetrik ikkilik",
+      "tranzaksiya ma'lumotlari",
+      "Vaqtinchalik ma'lumotlar",
+      "hujjat ma'lumotlari",
+      "Genetik ketma-ketlik ma'lumotlari",
+      "ma'lumotlar matritsasi",
+      "Ikkilik",
+      "Simetrik ikkilik"
+    ],
+    "correct_answer": [
+      "Fazoviy ma'lumotlar",
+      "Ketma-ket ma'lumotlar",
+      "Vaqtinchalik ma'lumotlar",
+      "Genetik ketma-ketlik ma'lumotlari"
+    ]
+  },
+  {
+    "id": 113,
+    "type": "matching",
+    "question": "Ma'lumotlarning intellektual tahlilini rivojlanish tarixini mosiga mosini toping",
+    "options": null,
+    "correct_answer": {
+      "1990-2000 yillar": "Data Mining (DM)",
+      "Rivojlanish davri (1980-1990 yillar)": "Ekspert tizimlari va sun'iy intellekt",
+      "Paydo bo'lishi (1950-1970 yillar)": "Statistika usullari",
+      "2000 yildan keyin": "Mashinali o'qitish va chuqur o'qitish usullarining rivojlanishi"
+    }
+  },
+  {
+    "id": 114,
+    "type": "single",
+    "question": "Foydalanuvchi ma'lumotlari va tajribalari asosida qarorlar qabul qilishi yoki turli buyruqlarni amalga oshirishi mumkin bo'lgan dastur nima?",
+    "options": [
+      "Intellektual dastur",
+      "Intellektual mashina",
+      "Intellektual robot",
+      "Intellektual agent"
+    ],
+    "correct_answer": "Intellektual agent"
+  },
+  {
+    "id": 115,
+    "type": "single",
+    "question": "Intellektual agentlarda atrof-muhitga ta'sir qiluvchi qurilmalar nima deyiladi?",
+    "options": [
+      "aktuator",
+      "robot",
+      "sensor",
+      "Effektor"
+    ],
+    "correct_answer": "Effektor"
+  },
+  {
+    "id": 116,
+    "type": "multiple",
+    "question": "Sun'iy intellekt tizimlarini yaratishda qaysi dasturlash tillari eng ko'p ishlatiladi?",
+    "options": [
+      "R",
+      "Python",
+      "C#",
+      "Java",
+      "C++"
+    ],
+    "correct_answer": [
+      "R",
+      "Python"
+    ]
+  },
+  {
+    "id": 117,
+    "type": "single",
+    "question": "Bilimga asoslangan tizimlar - bu ma'lum bilim sohalari bo'yicha mutaxassislarning ishiga taqlid qilish uchun mo'ljallangan kompyuter dasturlaridir. Uning qaysi turi odatda uning maqsadi yoki umumiy vazifasi ko'rsatilgan ba'zi qarorlarni qabul qiladigan dastur hisoblanadi?",
+    "options": [
+      "Intellektual agentlar",
+      "Genetik algoritm",
+      "Intellektual o'rgatuvchi tizimlar",
+      "Data Mining"
+    ],
+    "correct_answer": "Intellektual agentlar"
+  },
+  {
+    "id": 118,
+    "type": "single",
+    "question": "Bilimga asoslangan tizimlar - bu ma'lum bilim sohalari bo'yicha mutaxassislarning ishiga taqlid qilish uchun mo'ljallangan kompyuter dasturlaridir. Uning qaysi turi ma'lumotlardagi ilgari noma'lum munosabatlarni aniqlash orqali bilimlarni kashf qilishni tavsiflash uchun ishlatiladi?",
+    "options": [
+      "Geneteik algorimt",
+      "Data Mining",
+      "Ekspert tizim",
+      "Intellektrual agent"
+    ],
+    "correct_answer": "Data Mining"
+  },
+  {
+    "id": 119,
+    "type": "matching",
+    "question": "Bilim turlarini ko'rsating",
+    "options": null,
+    "correct_answer": {
+      "Narsalar haqida faktlarni aytib beradi": "Deklorativ bilim",
+      "bilim haqidagi bilimdir": "meta bilim",
+      "Bilim olish uchun faktlardan foydalanishga asoslangan muqobil harakatlarni ta'minlaydi": "Protsessual bilim"
+    }
+  },
+  {
+    "id": 120,
+    "type": "single",
+    "question": "Quyidagilardan qaysi biri axborot?",
+    "options": [
+      "tashqari jazirama issiq",
+      "−10 gradus sovuq",
+      "40 gradus issiq",
+      "tashqari issiq bo'lsa, yengilroq kiyining va soyabon oling"
+    ],
+    "correct_answer": "tashqari jazirama issiq"
+  },
+  {
+    "id": 121,
+    "type": "single",
+    "question": "Qaysi bilim turi bilim olish uchun faktlardan foydalanishga asoslangan muqobil harakatlarni ta'minlaydi?",
+    "options": [
+      "Deklarativ bilim",
+      "Protsessual bilim",
+      "dekorativ bilim",
+      "Meta-bilim"
+    ],
+    "correct_answer": "Protsessual bilim"
+  },
+  {
+    "id": 122,
+    "type": "single",
+    "question": "Quyidagilardan qaysi biri bilim?",
+    "options": [
+      "tashqari issiq bo'lsa, yengilroq kiyining va soyabon oling",
+      "−22 gradus",
+      "tashqari jazirama issiq",
+      "tashqarida qaxraton qish"
+    ],
+    "correct_answer": "tashqari issiq bo'lsa, yengilroq kiyining va soyabon oling"
+  },
+  {
+    "id": 123,
+    "type": "matching",
+    "question": "Bilimlarni ajratib olish usullarini ko'rsating",
+    "options": null,
+    "correct_answer": {
+      "Bilimlar bazasi uchun sohaning lug'ati va xaritasini yaratish": "Ontologiya muhandisligi",
+      "Bashorat qilish, ma'lumotlarni tasniflash yoki xususiyatlarni aniqlash": "Mashinali o'qitish",
+      "kompyuterlarga inson tilini tushunish va qayta ishlash": "NLP",
+      "Munosabatlar yoki tushunchalarni aniqlash uchun katta ma'lumotlar to'plamini o'rganish": "Data Mining"
+    }
+  },
+  {
+    "id": 124,
+    "type": "matching",
+    "question": "Mosiga mosini toping (rasmlar bo'yicha: miya+zanjir=Bilim, grafiklar=Axborot, binary kod=Ma'lumot)",
+    "options": null,
+    "correct_answer": {
+      "Miya va elektron zanjir tasviri (Idrok etish + Ortirilgan tajriba)": "Bilim",
+      "Turli xil grafiklar va diagrammalar tasviri": "Axborot",
+      "Ikkilik kod (0 va 1 lar) tasviri": "Ma'lumot"
+    }
+  },
+  {
+    "id": 125,
+    "type": "multiple",
+    "question": "Quyidagilardan qaysi biri ma'lumot?",
+    "options": [
+      "tashqari jazirama issiq",
+      "−17 gradus",
+      "tashqari sovuq bo'lsa palto kiyib oling",
+      "tashqarida qaxraton qish"
+    ],
+    "correct_answer": [
+      "−17 gradus"
+    ]
+  },
+  {
+    "id": 126,
+    "type": "single",
+    "question": "Bilimga asoslangan tizimlar - bu ma'lum bilim sohalari bo'yicha mutaxassislarning ishiga taqlid qilish uchun mo'ljallangan kompyuter dasturlaridir. Uning qaysi turi inson miyasining yuqori darajadagi kognitiv funksiyalarini modellashtiradi?",
+    "options": [
+      "Neyron tarmoqlar",
+      "Genetik algoritmlar",
+      "Ekspert tizimlari",
+      "Intellektual agentlar"
+    ],
+    "correct_answer": "Ekspert tizimlari"
+  },
+  {
+    "id": 127,
+    "type": "single",
+    "question": "Qaysi bilim turi bilim haqidagi bilim hisoblanadi?",
+    "options": [
+      "Dekorativ bilim",
+      "Meta-bilim",
+      "Deklarativ bilim",
+      "Protsessual bilim"
+    ],
+    "correct_answer": "Meta-bilim"
+  },
+  {
+    "id": 128,
+    "type": "single",
+    "question": "Qaysi bilim turi bizga narsalar haqida faktlarni aytib beradi?",
+    "options": [
+      "Meta-bilim",
+      "Protsessual bilim",
+      "ijtimoiy bilim",
+      "Deklarativ bilim"
+    ],
+    "correct_answer": "Deklarativ bilim"
+  },
+  {
+    "id": 129,
+    "type": "single",
+    "question": "Bilimga asoslangan tizimlar - bu ma'lum bilim sohalari bo'yicha mutaxassislarning ishiga taqlid qilish uchun mo'ljallangan kompyuter dasturlaridir. Uning qaysi turida murakkab masalalarning yechimlarini ishlab chiqiladi?",
+    "options": [
+      "Ekspert tizimlar",
+      "Genetik algoritmlar",
+      "Data Mining",
+      "Intellektual o'rgatuvchi tizimlar"
+    ],
+    "correct_answer": "Genetik algoritmlar"
+  },
+  {
+    "id": 130,
+    "type": "single",
+    "question": "Bilimga asoslangan tizimlar - bu ma'lum bilim sohalari bo'yicha mutaxassislarning ishiga taqlid qilish uchun mo'ljallangan kompyuter dasturlaridir. Uning qaysi turi inson miyasining ko'rish va nutqni aniqlash kabi belgilarni aniqlab olish vazifalarini bajarishga imkon beradi?",
+    "options": [
+      "Genetik algorimlar",
+      "Ekspert tizimlar",
+      "Data Mining",
+      "Neyron tarmoqlar"
+    ],
+    "correct_answer": "Neyron tarmoqlar"
+  },
+  {
+    "id": 131,
+    "type": "matching",
+    "question": "Mosiga mosini toping",
+    "options": null,
+    "correct_answer": {
+      "Xom, qayta ishlanmagan faktlar yoki kuzatishlar": "Ma'lumot",
+      "Axborot yoki ma'lumotlar obyektlari o'rtasidagi aniq funksional aloqa": "Bilim",
+      "Ma'no va kontekstni beradigan tarzda tashkil etilgan, tuzilgan yoki qayta ishlangan ma'lumot": "Axborot"
+    }
+  },
+  {
+    "id": 132,
+    "type": "matching",
+    "question": "Algoritmlarni tegishli guruhlarga moslang",
+    "options": null,
+    "correct_answer": {
+      "Random Forests": "Supervised (Klassifikatsiya)",
+      "Linear Regression": "Supervised (Regressiya)",
+      "PCA": "Unsupervised (O'lchamni kamaytirish)",
+      "K-Means": "Unsupervised (Klasterlash)"
+    }
+  },
+  {
+    "id": 133,
+    "type": "text",
+    "question": "Supervised Learningni nechta turi bor?",
+    "options": null,
+    "correct_answer": "2"
+  },
+  {
+    "id": 134,
+    "type": "text",
+    "question": "Machine Learning turlari nechta?",
+    "options": null,
+    "correct_answer": "3"
+  },
+  {
+    "id": 135,
+    "type": "ordering",
+    "question": "Kamayish tartibida chiqaring: Artificial Intelligence, Machine Learning, Deep Learning",
+    "options": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Deep Learning"
+    ],
+    "correct_answer": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Deep Learning"
+    ]
+  },
+  {
+    "id": 136,
+    "type": "matching",
+    "question": "Mashinali o'qitish turlarini ularning xususiyatlari bilan moslang",
+    "options": null,
+    "correct_answer": {
+      "Supervised Learning": "Belgilangan (labeled) ma'lumotlar bilan o'qitish",
+      "Semi-supervised Learning": "Qisman nazoratli va nazoratsiz usullar birikması",
+      "Reinforcement Learning": "Mukofot va jarima tizimi orqali o'qitish",
+      "Unsupervised Learning": "Belgilanmagan ma'lumotlar ichidan qonuniyatlarni topish"
+    }
+  },
+  {
+    "id": 137,
+    "type": "multiple",
+    "question": "Quyidagi muammolarning qay biri Unsupervised Learning yordamida hal qilinishi mumkin?",
+    "options": [
+      "Uy-joy narxi o'zgarishini bashorat qilish",
+      "Katta ma'lumotlardagi parametrlarni jamlash",
+      "Onlayn bozor mijozlarini guruhlash"
+    ],
+    "correct_answer": [
+      "Katta ma'lumotlardagi parametrlarni jamlash",
+      "Onlayn bozor mijozlarini guruhlash"
+    ]
+  },
+  {
+    "id": 138,
+    "type": "single",
+    "question": "Qaysi funksiya model o'rgangan koeffitsientlar (og'irliklar) ni ko'rsatadi?",
+    "options": [
+      "test_set",
+      "coef_",
+      "train_set",
+      "intercept_"
+    ],
+    "correct_answer": "coef_"
+  },
+  {
+    "id": 139,
+    "type": "single",
+    "question": "median() - nima vazifani bajaradi?",
+    "options": [
+      "eng o'rtadagi qiymatni chiqadi",
+      "mediana chizig'ini chizadi",
+      "eng tepadagi qiymatni chiqadi",
+      "eng pastdagi qiymatni chiqadi"
+    ],
+    "correct_answer": "eng o'rtadagi qiymatni chiqadi"
+  },
+  {
+    "id": 140,
+    "type": "matching",
+    "question": "ML elementlarini ma'nosini mosiga mosini toping",
+    "options": null,
+    "correct_answer": {
+      "Semi-supervised Learning": "Qisman nazorat",
+      "Supervised Learning": "Nazorat ostida",
+      "Unsupervised Learning": "Nazoratsiz",
+      "Reinforcement Learning": "O'z-o'zini tarbiyalash"
+    }
+  },
+  {
+    "id": 141,
+    "type": "multiple",
+    "question": "Unsupervised Learning qanday muammolar uchun ishlatiladi?",
+    "options": [
+      "Parametrlarni jamlash",
+      "Iqlim(ob-havo)ni bashorat qilish",
+      "Ma'lumotlarni siqish",
+      "Valyuta kurslarini bashorat qilish",
+      "Qonuniyatlarni topish",
+      "Katta ma'lumotlarni vizualizatsiya qilish",
+      "Anomal (noodatiy) qiymatlarni aniqlash",
+      "Aholi soni o'sishini bashorat qilish",
+      "parametrlariga qarab uy, mashina, yer va boshqalarni baholash",
+      "Narx-navonii bashorat qilish"
+    ],
+    "correct_answer": [
+      "Parametrlarni jamlash",
+      "Ma'lumotlarni siqish",
+      "Qonuniyatlarni topish",
+      "Katta ma'lumotlarni vizualizatsiya qilish",
+      "Anomal (noodatiy) qiymatlarni aniqlash"
+    ]
+  },
+  {
+    "id": 142,
+    "type": "single",
+    "question": "mode() funksiyasi nima vazifani bajaradi?",
+    "options": [
+      "massivdagi eng kam takrorlanuvchi qiymatni chiqaradi",
+      "massivdagi eng ko'p takrorlanuvchi qiymatni chiqaradi",
+      "massiv elementlarni qarama-qarshisiga o'zgartiradi ([-2, 3, 5, ...] bo'lsa, [2, -3, -5, ...] ga)",
+      "massiv elementlarni teskarisiga o'zgartiradi ([-2, 3, 5, ...] bo'lsa, [-1/2, 1/3, 1/5, ...] ga)"
+    ],
+    "correct_answer": "massivdagi eng ko'p takrorlanuvchi qiymatni chiqaradi"
+  },
+  {
+    "id": 143,
+    "type": "single",
+    "question": "Qaysi funksiya chiziqli regressiya modelining boshlang'ich nuqtasini beradi?",
+    "options": [
+      "intercept_",
+      "coef_",
+      "test_set",
+      "train_set"
+    ],
+    "correct_answer": "intercept_"
+  },
+  {
+    "id": 144,
+    "type": "single",
+    "question": "x = np.array([[1], [2], [3], [4], [5]]) # Kirish\ny = np.array([3, 5, 7, 9, 11]) # Natijalar\nmodel = LinearRegression()\nmodel.fit(x, y)\nmodel.predict([[10]]) nima natija chiqaradi?",
+    "options": [
+      "25",
+      "21",
+      "19",
+      "17"
+    ],
+    "correct_answer": "21"
+  },
+  {
+    "id": 145,
+    "type": "fill_in",
+    "question": "Machine Learning atamasini ___ yilda keng ommaga ma'lum qilgan",
+    "options": null,
+    "correct_answer": {
+      "kim": "Artur Samuel",
+      "yil": "1959"
+    }
+  },
+  {
+    "id": 146,
+    "type": "matching",
+    "question": "Regressiya turlarini mosiga mosnini toping (dataset rasmlari bo'yicha)",
+    "options": null,
+    "correct_answer": {
+      "Ko'p ustunli dataset (rooms, size, level, max_levels, price)": "Multiple Linear Regression",
+      "Bitta ustunli dataset (faqat size va price)": "Simple Linear Regression"
+    }
+  },
+  {
+    "id": 147,
+    "type": "fill_in",
+    "question": "Machine Learning (ML) – kompyuterlarni ___ holda o'z-o'zini o'qitish imkoniyatini berish",
+    "options": null,
+    "correct_answer": {
+      "blank": "dasturlamagan"
+    }
+  },
+  {
+    "id": 148,
+    "type": "single",
+    "question": "Dataset (jadval) haqidagi statistik ma'lumotlarni chiqaruvchi komanda nomini toping",
+    "options": [
+      "*.info()",
+      "*.describe()",
+      "*.show()"
+    ],
+    "correct_answer": "*.describe()"
+  },
+  {
+    "id": 149,
+    "type": "single",
+    "question": "model.fit(x,y) funksiyasi nima vazifani bajaradi?",
+    "options": [
+      "modelni o'chirish metodi",
+      "modelni to'ldirish metodi",
+      "modelni o'qitish metodi",
+      "modelni grafigini chizish metodi"
+    ],
+    "correct_answer": "modelni o'qitish metodi"
+  },
+  {
+    "id": 150,
+    "type": "text",
+    "question": "Davomiy qiymatlarni bashorat qilish jarayoni nima deyiladi?",
+    "options": null,
+    "correct_answer": "regressiya"
+  },
+  {
+    "id": 151,
+    "type": "multiple",
+    "question": "Ko'p sohali regressiya turlarini ko'rsating",
+    "options": [
+      "Multiple Non-Linear Regression",
+      "Simple Non-Linear Regression",
+      "Simple Linear Regression",
+      "Multiple Linear Regression"
+    ],
+    "correct_answer": [
+      "Multiple Non-Linear Regression",
+      "Multiple Linear Regression"
+    ]
+  },
+  {
+    "id": 152,
+    "type": "multiple",
+    "question": "Machine Learning qanday muammolarni yechish uchun mo'ljallangan?",
+    "options": [
+      "ko'p qonun-qoidalar va shartlar yozishni talab qiladigan muammolar",
+      "klassik usul bilan yechim topib bo'lmaydigan kompleks muammolar",
+      "katta o'lchamdagi ma'lumotlardan yashirin mazmun va ma'nolarni topishga oid muammolar",
+      "doimiy o'zgaruvchan muammolar",
+      "katta o'lchamdagi ma'lumotlarni siqish"
+    ],
+    "correct_answer": [
+      "ko'p qonun-qoidalar va shartlar yozishni talab qiladigan muammolar",
+      "klassik usul bilan yechim topib bo'lmaydigan kompleks muammolar",
+      "katta o'lchamdagi ma'lumotlardan yashirin mazmun va ma'nolarni topishga oid muammolar",
+      "doimiy o'zgaruvchan muammolar"
+    ]
+  },
+  {
+    "id": 153,
+    "type": "single",
+    "question": "to_numpy() - funksiyasi nima vazifani bajaradi?",
+    "options": [
+      "DataFrame yoki Series'ni NumPy massivga aylantiradi",
+      "NumPy massivni ASC qilib saralaydi",
+      "NumPy massivni DataFrame yoki Series'ga aylantiradi",
+      "NumPy massivni DESC qilib saralaydi"
+    ],
+    "correct_answer": "DataFrame yoki Series'ni NumPy massivga aylantiradi"
+  },
+  {
+    "id": 154,
+    "type": "matching",
+    "question": "Mosiga mosini toping (ML turi rasmlari bo'yicha)",
+    "options": null,
+    "correct_answer": {
+      "1-guruh va 2-guruh ajratilgan rasm (label bilan)": "Unsupervised Learning",
+      "Ko'p qatlam va chiziqlar bilan murakkab rasm": "Semi-supervised Learning",
+      "Olma, nok, banan ajratilgan rasm (Supervised)": "Supervised Learning"
+    }
+  },
+  {
+    "id": 155,
+    "type": "multiple",
+    "question": "Sun'iy intellekt - odamlarga taqlid qiluvchi kompyuterlar yoki dasturlar nimalrga yordam beradi?",
+    "options": [
+      "Muammolarga yechim topishda",
+      "Oqilona qaror qabul qilishda",
+      "Uylarni qurishda",
+      "Kompyuterlarni yig'ishda",
+      "Odamlarga o'xshab harakat qilishda"
+    ],
+    "correct_answer": [
+      "Muammolarga yechim topishda",
+      "Oqilona qaror qabul qilishda",
+      "Odamlarga o'xshab harakat qilishda"
+    ]
+  },
+  {
+    "id": 156,
+    "type": "multiple",
+    "question": "Klassifikatsiya nima?",
+    "options": [
+      "Nazorat ostidagi (Supervised) ML turi",
+      "Noma'lum elementlarni kategoriyalarga (klasslarga) ajratish",
+      "Davomiy qiymatlarni bashorat qilish jarayoni"
+    ],
+    "correct_answer": [
+      "Nazorat ostidagi (Supervised) ML turi",
+      "Noma'lum elementlarni kategoriyalarga (klasslarga) ajratish"
+    ]
+  },
+  {
+    "id": 157,
+    "type": "multiple",
+    "question": "Machine Learning – o'qitish turlarining Onlineda afzalliklarini ko'rsating",
+    "options": [
+      "Ma'lumotlar doimiy yangilanib boradi",
+      "Sifatsiz ma'lumotlar modelni bir zumda buzadi",
+      "Jarayon nisbatan tez va kam resurs talab qiladi",
+      "Ma'lumotlar kelishiga qarab kompyuterda uzatilaveradi"
+    ],
+    "correct_answer": [
+      "Ma'lumotlar doimiy yangilanib boradi",
+      "Jarayon nisbatan tez va kam resurs talab qiladi",
+      "Ma'lumotlar kelishiga qarab kompyuterda uzatilaveradi"
+    ]
+  },
+  {
+    "id": 158,
+    "type": "single",
+    "question": "Dataset (jadval) ustunlari haqidagi ma'lumotlarni chiqaruvchi komanda nomini toping",
+    "options": [
+      "*.info()",
+      "*.describe()",
+      "*.show()"
+    ],
+    "correct_answer": "*.info()"
+  },
+  {
+    "id": 159,
+    "type": "multiple",
+    "question": "Unsupervised Learning qanday muammolar uchun ishlatiladi?",
+    "options": [
+      "Narx-navonii bashorat qilish",
+      "Iqlim(ob-havo)ni bashorat qilish",
+      "Ma'lumotlarni siqish",
+      "Katta ma'lumotlarni vizualizatsiya qilish",
+      "Aholi soni o'sishini bashorat qilish",
+      "Valyuta kurslarini bashorat qilish",
+      "Parametrlarni jamlash",
+      "parametrlariga qarab uy, mashina, yer va boshqalarni baholash"
+    ],
+    "correct_answer": [
+      "Ma'lumotlarni siqish",
+      "Katta ma'lumotlarni vizualizatsiya qilish",
+      "Parametrlarni jamlash"
+    ]
+  },
+  {
+    "id": 160,
+    "type": "single",
+    "question": "sample(10) nima ish qiladi?",
+    "options": [
+      "berilgan massivdan dastlabki 0 ta qiymatni tanlaydi",
+      "berilgan massivdan tasodiy 10 ta qiymatni tanlaydi",
+      "berilgan massiv o'sish tartibida saralaydi va eng pastdagi 10 ta qiymatni tanlaydi",
+      "berilgan massiv o'sish tartibida saralaydi va eng tepadagi 10 ta qiymatni tanlaydi"
+    ],
+    "correct_answer": "berilgan massivdan tasodiy 10 ta qiymatni tanlaydi"
+  },
+  {
+    "id": 161,
+    "type": "multiple",
+    "question": "Klassifikatsiya turlarini ko'rsating",
+    "options": [
+      "Multi-class classification",
+      "Simple Regression",
+      "Multiple Regression",
+      "Binary classification"
+    ],
+    "correct_answer": [
+      "Multi-class classification",
+      "Binary classification"
+    ]
+  },
+  {
+    "id": 162,
+    "type": "matching",
+    "question": "Regressiya formulalarini to'g'ri roping",
+    "options": null,
+    "correct_answer": {
+      "y = θ₀ + θ₁x₁ + θ₂x₂ + ... + θₙxₙ": "Multiply Linear Regression",
+      "ŷ = θ₀ + θ₁x₁": "Simple Linear Regression"
+    }
+  },
+  {
+    "id": 163,
+    "type": "multiple",
+    "question": "Supervised Learning qanday muammolar uchun ishlatiladi?",
+    "options": [
+      "Firibgarliklarni aniqlash",
+      "Tasvirlarni ajratish",
+      "Yo'naltirilgan marketing",
+      "Mijozlarni saqlab qolish",
+      "Mijozlarni guruhlash",
+      "Tavsiya tizimlari",
+      "Diagnostika"
+    ],
+    "correct_answer": [
+      "Firibgarliklarni aniqlash",
+      "Tasvirlarni ajratish",
+      "Mijozlarni saqlab qolish",
+      "Diagnostika"
+    ]
+  },
+  {
+    "id": 164,
+    "type": "multiple",
+    "question": "Supervised Learning qanday muammolar uchun ishlatiladi?",
+    "options": [
+      "Aholi soni o'sishini bashorat qilish",
+      "Valyuta kurslarini bashorat qilish",
+      "Ma'lumotlarni siqish",
+      "parametrlariga qarab uy, mashina, yer va boshqalarni baholash",
+      "Katta ma'lumotlarni vizualizatsiya qilish",
+      "Iqlim(ob-havo)ni bashorat qilish",
+      "Parametrlarni jamlash",
+      "Narx-navonii bashorat qilish"
+    ],
+    "correct_answer": [
+      "Aholi soni o'sishini bashorat qilish",
+      "Valyuta kurslarini bashorat qilish",
+      "parametrlariga qarab uy, mashina, yer va boshqalarni baholash",
+      "Iqlim(ob-havo)ni bashorat qilish",
+      "Narx-navonii bashorat qilish"
+    ]
+  },
+  {
+    "id": 165,
+    "type": "multiple",
+    "question": "Sodda regressiya turlarini ko'rsating",
+    "options": [
+      "Simple Linear Regression",
+      "Multiple Non-Linear Regression",
+      "Simple Non-Linear Regression",
+      "Multiple Linear Regression"
+    ],
+    "correct_answer": [
+      "Simple Linear Regression",
+      "Simple Non-Linear Regression"
+    ]
+  },
+  {
+    "id": 166,
+    "type": "single",
+    "question": "shape() - funksiyasi nima vazifani bajaradi?",
+    "options": [
+      "massivda nechta satr borligini chiqaradi",
+      "massivda nechta ustun borligini chiqaradi",
+      "massivda nechta satr va ustunlar ko'pytmasini chiqaradi",
+      "massivda nechta satr va ustun borligini chiqaradi"
+    ],
+    "correct_answer": "massivda nechta satr va ustun borligini chiqaradi"
+  },
+  {
+    "id": 167,
+    "type": "single",
+    "question": "matn = \"Sun'iy intellekt asoslari\"\nprint(len(matn))\nNatijani tanlang",
+    "options": [
+      "27",
+      "24",
+      "26",
+      "25"
+    ],
+    "correct_answer": "25"
+  },
+  {
+    "id": 168,
+    "type": "multiple",
+    "question": "Simple Linear Regression afzalliklarini ko'rsating",
+    "options": [
+      "Tushunishga oson",
+      "Parametrlarni sozlash shart emas",
+      "Tez",
+      "Qimmat",
+      "Arzon"
+    ],
+    "correct_answer": [
+      "Tushunishga oson",
+      "Parametrlarni sozlash shart emas",
+      "Tez"
+    ]
+  },
+  {
+    "id": 169,
+    "type": "text",
+    "question": "Pythonda Machine Learning algoritmlarni jamlagan kutubxona nomini yozing.",
+    "options": null,
+    "correct_answer": "sklearn"
+  },
+  {
+    "id": 170,
+    "type": "single",
+    "question": "len(x) - funksiyasi nima vazifani bajaradi",
+    "options": [
+      "massiv ichida nechta element borligini qaytaradi.",
+      "massiv ichida nechta manfiy element borligini qaytaradi.",
+      "massiv ichida nechta musbat element borligini qaytaradi.",
+      "massiv ichida nechta Null element borligini qaytaradi."
+    ],
+    "correct_answer": "massiv ichida nechta element borligini qaytaradi."
+  },
+  {
+    "id": 171,
+    "type": "single",
+    "question": "mean(x) - nima ish qiladi?",
+    "options": [
+      "o'rtacha arifmetik qiymatni hisoblaydigan funksiya",
+      "eng kattani hisoblaydigan funksiya",
+      "eng kichikni hisoblaydigan funksiya",
+      "summani hisoblaydigan funksiya"
+    ],
+    "correct_answer": "o'rtacha arifmetik qiymatni hisoblaydigan funksiya"
+  },
+  {
+    "id": 172,
+    "type": "single",
+    "question": "Unsupervised Learning da Supervised Learningdan farqli ravishda ma'lumotlarga nima berilmaydi?",
+    "options": [
+      "jadval (table)",
+      "ustun (column)",
+      "satr (ceil)",
+      "yorliq (label)",
+      "kalit (key)"
+    ],
+    "correct_answer": "yorliq (label)"
+  },
+  {
+    "id": 173,
+    "type": "single",
+    "question": "Qaysi funksiya model o'rgangan ma'lumotlar asosida yangi natijani bashorat qiladi?",
+    "options": [
+      "predict(x)",
+      "figure(x)",
+      "fit(x,y)",
+      "train_test_split(x)"
+    ],
+    "correct_answer": "predict(x)"
+  },
+  {
+    "id": 174,
+    "type": "matching",
+    "question": "Klasifikatsiya turlarni mosiga mosni toping (rasmlar bo'yicha)",
+    "options": null,
+    "correct_answer": {
+      "3 ta sinf (uchburchak, x, kvadrat) ajratilgan rasm": "Multi-class classification",
+      "2 ta sinf (ko'k doira va qizil x) ajratilgan rasm": "Binary classification"
+    }
+  },
+  {
+    "id": 175,
+    "type": "matching",
+    "question": "Funksiyalarni vazifalarini toping",
+    "options": null,
+    "correct_answer": {
+      "median()": "eng o'rtadagi qiymatni chiqadi",
+      "shape()": "datasetda nechta satr va ustun borligini chiqaradi",
+      "len(x)": "massiv ichida nechta element borligini qaytaradi",
+      "mean()": "o'rtacha arifmetik qiymatni hisoblaydi",
+      "mode()": "massivdagi eng ko'p takrorlanuvchi qiymatni chiqadi"
+    }
+  },
+  {
+    "id": 176,
+    "type": "text",
+    "question": "matn = \"Sun'iy intellekt asoslari\" print(len(matn)) Natijani tanlang",
+    "options": null,
+    "correct_answer": "25"
+  },
+  {
+    "id": 177,
+    "type": "fill_in",
+    "question": "Zamonaviy sun'iy intellektlar ___ asosida yaratiladi",
+    "options": null,
+    "correct_answer": {
+      "blank": "Machine Learning"
+    }
+  },
+  {
+    "id": 178,
+    "type": "multiple",
+    "question": "Unsupervised Learning qanday muammolar uchun ishlatiladi?",
+    "options": [
+      "Diagnostika",
+      "Tasvirlarni ajratish",
+      "Mijozlarni saqlab qolish",
+      "Yo'naltirilgan marketing",
+      "Firibgarliklarni aniqlash",
+      "Tavsiya tizimlari",
+      "Mijozlarni guruhlash"
+    ],
+    "correct_answer": [
+      "Yo'naltirilgan marketing",
+      "Tavsiya tizimlari",
+      "Mijozlarni guruhlash"
+    ]
+  },
+  {
+    "id": 179,
+    "type": "multiple",
+    "question": "Machine Learning – o'qitish turlarining Offlineda afzalliklarini ko'rsating",
+    "options": [
+      "Kompyuterda barcha mavjud ma'lumotlar birdan beriladi",
+      "Ko'p resurs va vaqt talab qiladi",
+      "Ishlashi nisbatan oson",
+      "Yangi ma'lumotlar kelganda model qayta o'qitiladi"
+    ],
+    "correct_answer": [
+      "Kompyuterda barcha mavjud ma'lumotlar birdan beriladi",
+      "Ishlashi nisbatan oson"
+    ]
+  },
+  {
+    "id": 180,
+    "type": "multiple",
+    "question": "Regressiya qayerlarda ishlatiladi?",
+    "options": [
+      "Savdoni bashorat qilish",
+      "Narxlarni bashorat qilish",
+      "Qo'l yozma yoki nutqdan tushunishda",
+      "Tavsiya tizimlarida",
+      "Maoshni bashorat qilish",
+      "Mijozlarni kategoriyaga ajratishda",
+      "Mijozlar qoniqqanligini baholash"
+    ],
+    "correct_answer": [
+      "Savdoni bashorat qilish",
+      "Narxlarni bashorat qilish",
+      "Maoshni bashorat qilish",
+      "Mijozlar qoniqqanligini baholash"
+    ]
+  },
+  {
+    "id": 181,
+    "type": "multiple",
+    "question": "Classifikatsiya qayerlarda ishlatiladi?",
+    "options": [
+      "Tavsiya tizimlarida",
+      "Narxlarni bashorat qilish",
+      "Savdoni bashorat qilish",
+      "Mijozlar qoniqqanligini baholash",
+      "Maoshni bashorat qilish",
+      "customer churn",
+      "Face ID",
+      "targeted marketing",
+      "Qo'l yozma yoki nutqdan tushunishda",
+      "Mijozlarni kategoriyaga ajratishda"
+    ],
+    "correct_answer": [
+      "Tavsiya tizimlarida",
+      "customer churn",
+      "Face ID",
+      "targeted marketing",
+      "Qo'l yozma yoki nutqdan tushunishda",
+      "Mijozlarni kategoriyaga ajratishda"
+    ]
+  },
+  {
+    "id": 182,
+    "type": "matching",
+    "question": "Dataset bilan ishlagandagi komandalarni vazifalarini toping.",
+    "options": null,
+    "correct_answer": {
+      "df = df.drop(1, axis=1)": "1 nomli ustuni o'chiriladi",
+      "df = df.drop(1, axis=0)": "1 nomli satr o'chiriladi"
+    }
+  },
+  {
+    "id": 183,
+    "type": "single",
+    "question": "Polinomial regressiyada daraja (degree) qanchalik katta bo'lsa, model shunchalik yaxshi ishlaydi.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False"
+  },
+  {
+    "id": 184,
+    "type": "matching",
+    "question": "Quyidagi tushunchalarni to'g'ri ta'riflar bilan juftlashtiring",
+    "options": null,
+    "correct_answer": {
+      "MAE": "O'rtacha absolut xatolik - bashorat va haqiqiy qiymat orasidagi farqning o'rtachasi",
+      "R² = 0.99": "Model ma'lumotlarning 99% dispersiyasini tushuntiradi",
+      "fit_transform()": "fit() va transform() ni birga bajaruvchi metod",
+      "High Bias": "Underfitting — model juda sodda",
+      "High Variance": "Overfitting — model juda murakkab"
+    }
+  },
+  {
+    "id": 185,
+    "type": "multiple",
+    "question": "Quyidagilardan qaysi biri underfitting - modelni murakkablashtirish uchun xizmat qiladi?",
+    "options": [
+      "parametrlarni kamaytirish",
+      "Polynomial darajalarni kamaytirish",
+      "ko'proq parametrlar qo'shish",
+      "Polynomial darajalarni oshirish",
+      "Ko'proq darajalar qo'shish"
+    ],
+    "correct_answer": [
+      "ko'proq parametrlar qo'shish",
+      "Polynomial darajalarni oshirish",
+      "Ko'proq darajalar qo'shish"
+    ]
+  },
+  {
+    "id": 186,
+    "type": "text",
+    "question": "Polinomial regressiyada PolynomialFeatures(degree=2) X = [3] uchun hosil qiladigan features: [1, 3, ?]. ? o'rniga nima turadi?",
+    "options": null,
+    "correct_answer": "9"
+  },
+  {
+    "id": 187,
+    "type": "single",
+    "question": "NumPy kutubxonasini yuklang va uni qisqa qilib np deb chaqiring. Jumlani kodga aylantiring",
+    "options": [
+      "import numpy as np",
+      "import np from numpy",
+      "import numpy to np",
+      "import np as numpy"
+    ],
+    "correct_answer": "import numpy as np"
+  },
+  {
+    "id": 188,
+    "type": "single",
+    "question": "%matplotlib inline - komandasi nima qiladi?",
+    "options": [
+      "grafik notebook (dastur) ichida chiqadi",
+      "grafik notebook (dastur) tashqarisida chiqadi",
+      "grafik notebook (dastur) mutlaqo yangi joyda chiqadi",
+      "grafik notebook (dastur) ning alohida vkladkasida chiqadi"
+    ],
+    "correct_answer": "grafik notebook (dastur) ichida chiqadi"
+  },
+  {
+    "id": 189,
+    "type": "multiple",
+    "question": "Quyidagilardan qaysi biri overfitting modelni soddalashtirish uchun xizmat qiladi?",
+    "options": [
+      "Polynomial darajalarni kamaytirish",
+      "Algoritmni o'zgartirish",
+      "Parametrlarni ko'paytirish",
+      "Ko'proq ma'lumot yig'ish",
+      "Polynomial darajalarni oshirirish",
+      "Parametrlarni kamaytirish"
+    ],
+    "correct_answer": [
+      "Polynomial darajalarni kamaytirish",
+      "Algoritmni o'zgartirish",
+      "Ko'proq ma'lumot yig'ish",
+      "Parametrlarni kamaytirish"
+    ]
+  },
+  {
+    "id": 190,
+    "type": "single",
+    "question": "Talabalar jadvalda district degan ustun bor.\nhousing = df[df.district=='Mo'ynoq'] housing.head(10)\nKod nima chiqaradi?",
+    "options": [
+      "Mo'ynoqlik 10 ta talabani chiqaradi",
+      "Mo'ynoqlik talabalarni DESC bo'yicha saralab 10 tasini chiqaradi",
+      "Mo'ynoqlik talabalarni ASC bo'yicha saralab 10 tasini chiqaradi.",
+      "Mo'ynoqdan boshqa joydan bo'lgan 10 ta talabani chiqaradi"
+    ],
+    "correct_answer": "Mo'ynoqlik 10 ta talabani chiqaradi"
+  },
+  {
+    "id": 191,
+    "type": "single",
+    "question": "Quyidagi kodda x_poly[0] nima qaytaradi?\npoly = PolynomialFeatures(degree=3, include_bias=False)\nX_poly = poly.fit_transform([[2]])",
+    "options": [
+      "[[2, 4]] — ya'ni [x, x²]",
+      "[[2, 4, 8]] — ya'ni [x, x², x³]",
+      "[[1, 2, 4]] — ya'ni [1, x, x²]",
+      "[[1, 2, 4, 8]] — ya'ni [1, x, x², x³]"
+    ],
+    "correct_answer": "[[2, 4, 8]] — ya'ni [x, x², x³]"
+  },
+  {
+    "id": 192,
+    "type": "single",
+    "question": "fit_transform() metodi fit() va transform() ni ketma-ket bajaradi.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "True"
+  },
+  {
+    "id": 193,
+    "type": "single",
+    "question": "Jadvalimizda talabalarni qaysi tumandan ekanligini ko'rsatuvchi tuman degan ustun bor.\nf['tuman'].value_counts()\nKod nimani chiqaradi?",
+    "options": [
+      "nechta tuman borligini chiqaradi",
+      "har bir tumandan nechtadan talaba borligini chiqaradi",
+      "tuman ustunini DESC tartibda saralaydi",
+      "tuman ustunini ASC tartibda saralaydi"
+    ],
+    "correct_answer": "har bir tumandan nechtadan talaba borligini chiqaradi"
+  },
+  {
+    "id": 194,
+    "type": "single",
+    "question": "df = pd.read_csv('kimasofa.csv', index_col=0) df.head(10)\nUshbu koddagi head() nima ish qiladi?",
+    "options": [
+      "jadvalning ixtiyoriy 10 ta satrini chiqaradi",
+      "jadvalning birinchi 10 ta satrni chiqaradi.",
+      "jadvalning eng kichik 10 ta satrini chiqaradi",
+      "jadvalning eng katta 10 ta satrini chiqaradi"
+    ],
+    "correct_answer": "jadvalning birinchi 10 ta satrni chiqaradi."
+  },
+  {
+    "id": 195,
+    "type": "single",
+    "question": "Ma'lumotlarni normallashtirishda x = x / X.max() nima uchun ishlatiladi?",
+    "options": [
+      "R² ni oshirish uchun",
+      "Polynomial degree ni kamaytirish uchun",
+      "Katta qiymatlarni [0,1] oralig'iga keltirish uchun",
+      "Manfiy qiymatlarni yo'qotish uchun"
+    ],
+    "correct_answer": "Katta qiymatlarni [0,1] oralig'iga keltirish uchun"
+  },
+  {
+    "id": 196,
+    "type": "single",
+    "question": "Overfitting holida training to'plamidagi xatolik kichik, lekin test to'plamidagi xatolik katta bo'ladi.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "True"
+  },
+  {
+    "id": 197,
+    "type": "single",
+    "question": "Grafik chizishda pairplot() nima vazifani bajaradi?",
+    "options": [
+      "uchta ustunni bir-biri bilan taqqoslab grafiklar chizuvchi funksiya",
+      "grafiklar chizuvchi funksiya",
+      "barcha sonli ustunlarni bir-biri bilan taqqoslab grafiklar chizuvchi funksiya",
+      "ikkita ustunni bir-biri bilan taqqoslab grafiklar chizuvchi funksiya"
+    ],
+    "correct_answer": "barcha sonli ustunlarni bir-biri bilan taqqoslab grafiklar chizuvchi funksiya"
+  },
+  {
+    "id": 198,
+    "type": "single",
+    "question": "Jarayonlar o'rtasidagi bog'liqlik to'g'ri chiziq bo'lmasa qaysi regressiya ishlatiladi?",
+    "options": [
+      "Non - Linear Regression",
+      "Multi Linear Regression",
+      "Simply Linear Regression",
+      "Linear Regression"
+    ],
+    "correct_answer": "Non - Linear Regression"
+  },
+  {
+    "id": 199,
+    "type": "single",
+    "question": "seaborn qanday kutubxona?",
+    "options": [
+      "jadvaldagi ma'lumotlarni tozalashda ishlatiladigan kutubxona",
+      "jadvalli ma'lumotlarni massivga o'giradigan kutubxona",
+      "jadvaldagi ma'lumotlarni nusxalaydigan kutubxona",
+      "ma'lumotlarni grafiklarda ko'rsatish uchun ishlatiladigan kutubxona"
+    ],
+    "correct_answer": "ma'lumotlarni grafiklarda ko'rsatish uchun ishlatiladigan kutubxona"
+  },
+  {
+    "id": 200,
+    "type": "single",
+    "question": "Klassifikatsiya (Tasniflash) qaysi mashina o'qitish turiga kiradi?",
+    "options": [
+      "Mustahkamlash orqali o'qitish (Reinforcement Learning)",
+      "Nazorat ostidagi (Supervised) o'qitish",
+      "Nazorat ostida bo'lmagan (Unsupervised) o'qitish",
+      "Yarim nazoratli (Semi-supervised) o'qitish"
+    ],
+    "correct_answer": "Nazorat ostidagi (Supervised) o'qitish"
+  },
+  {
+    "id": 201,
+    "type": "matching",
+    "question": "Quyidagi atamalar va ta'riflarni moslang:",
+    "options": null,
+    "correct_answer": {
+      "TP (True Positive)": "Haqiqatda 1, bashorat 1",
+      "FP (False Positive)": "Haqiqatda 0, bashorat 1",
+      "TN (True Negative)": "Haqiqatda 0, bashorat 0",
+      "FN (False Negative)": "Haqiqatda 1, bashorat 0"
+    }
+  },
+  {
+    "id": 202,
+    "type": "single",
+    "question": "TP (True Positive) nima?",
+    "options": [
+      "Haqiqatda 1 bo'lgan, model 0 deb bashorat qilgan",
+      "Haqiqatda 1 bo'lgan, model ham 1 deb bashorat qilgan",
+      "Haqiqatda 0 bo'lgan, model 1 deb bashorat qilgan",
+      "Haqiqatda 0 bo'lgan, model ham 0 deb bashorat qilgan"
+    ],
+    "correct_answer": "Haqiqatda 1 bo'lgan, model ham 1 deb bashorat qilgan"
+  },
+  {
+    "id": 203,
+    "type": "single",
+    "question": "FP (False Positive) nima?",
+    "options": [
+      "Haqiqatda 0 bo'lgan, lekin model 1 deb bashorat qilgan",
+      "Haqiqatda 1 bo'lgan, model ham 1 deb bashorat qilgan",
+      "Haqiqatda 1 bo'lgan, lekin model 0 deb bashorat qilgan",
+      "Haqiqatda 0 bo'lgan, model ham 0 deb bashorat qilgan"
+    ],
+    "correct_answer": "Haqiqatda 0 bo'lgan, lekin model 1 deb bashorat qilgan"
+  },
+  {
+    "id": 204,
+    "type": "text",
+    "question": "Confusion Matrix: TP=46, FP=6, FN=10, TN=18. Jami nechta namuna bor?",
+    "options": null,
+    "correct_answer": "80"
+  },
+  {
+    "id": 205,
+    "type": "single",
+    "question": "K-NN algoritmi qisqartmasining to'liq nomi nima?",
+    "options": [
+      "K-Nearest Neighbours",
+      "K-Normal Nodes",
+      "K-Neural Networks",
+      "K-Nearest Networks"
+    ],
+    "correct_answer": "K-Nearest Neighbours"
+  },
+  {
+    "id": 206,
+    "type": "single",
+    "question": "K-NN algoritmi asosan qaysi muammoni hal qilishda ishlatiladi?",
+    "options": [
+      "Assotsiatsiya (Association)",
+      "Tasniflash (Classification)",
+      "Klasterlash (Clustering)",
+      "Regressiya (Regression)"
+    ],
+    "correct_answer": "Tasniflash (Classification)"
+  },
+  {
+    "id": 207,
+    "type": "text",
+    "question": "Confusion Matrix da TP=112, FP=8, FN=12, TN=78 bo'lsa Accuracy qancha (%) bo'ladi? % da kiriting. Nuqtadan keyin bitta qiymat kiriting. Masalan 10.5",
+    "options": null,
+    "correct_answer": "90.5"
+  },
+  {
+    "id": 208,
+    "type": "single",
+    "question": "Confusion Matrix (Aralashuv jadvali) nima uchun ishlatiladi?",
+    "options": [
+      "Ma'lumotlarni normallashtirish uchun",
+      "Modelni o'qitish uchun",
+      "Tasniflash modelining ishlashini baholash uchun",
+      "Grafik chizish uchun"
+    ],
+    "correct_answer": "Tasniflash modelining ishlashini baholash uchun"
+  },
+  {
+    "id": 209,
+    "type": "text",
+    "question": "Confusion Matrix: TP=112, FP=8, FN=12, TN=78. Recall qiymatini hisoblang (0.00 formatda).",
+    "options": null,
+    "correct_answer": "0.90"
+  },
+  {
+    "id": 210,
+    "type": "single",
+    "question": "scikit-learn kutubxonasida K-NN klassifikatori qanday import qilinadi?",
+    "options": [
+      "from sklearn.knn import KNeighborsClassifier",
+      "from sklearn.neighbors import KNeighborsClassifier",
+      "from sklearn import KNeighborsClassifier",
+      "from sklearn.classification import KNeighborsClassifier"
+    ],
+    "correct_answer": "from sklearn.neighbors import KNeighborsClassifier"
+  },
+  {
+    "id": 211,
+    "type": "matching",
+    "question": "Formulalar va nomlarni moslang:",
+    "options": null,
+    "correct_answer": {
+      "TP/(TP+FP)": "Precision",
+      "2*P*R/(P+R)": "F1 Score",
+      "(TP+TN)/(TP+TN+FP+FN)": "Accuracy",
+      "TP/(TP+FN)": "Recall"
+    }
+  },
+  {
+    "id": 212,
+    "type": "text",
+    "question": "Confusion Matrix: TP=112, FP=8, FN=12, TN=78. Precision qiymatini hisoblang (0.00 formatda).",
+    "options": null,
+    "correct_answer": "0.93"
   }
 ]
