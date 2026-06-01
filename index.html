@@ -9,13 +9,10 @@
 :root{--bg:#0d0d0d;--sur:#161616;--brd:#2a2a2a;--acc:#e8ff47;--txt:#f0f0f0;--mut:#666;--ok:#4ade80;--bad:#f87171;--r:12px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--txt);font-family:'Syne',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
-
-/* LOADING */
 #loading{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:16px}
 #loading .spin{width:40px;height:40px;border:3px solid var(--brd);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 #loading p{color:var(--mut);font-size:13px;font-family:'DM Mono',monospace}
-
 header{width:100%;max-width:780px;padding:32px 24px 0;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--acc)}
 .pw{display:flex;align-items:center;gap:12px}
@@ -85,6 +82,20 @@ select.bad{border-color:var(--bad)}
 .fbi{font-size:16px;flex-shrink:0}
 .fbl{font-weight:700;margin-bottom:4px}
 .fba{color:var(--txt);font-size:12px;line-height:1.5;margin-top:4px}
+
+/* show answer box */
+.sa-box{margin-top:14px;border-radius:8px;overflow:hidden;border:1px solid #fbbf2433}
+.sa-toggle{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fbbf2409;cursor:pointer;user-select:none;font-size:12px;font-weight:700;color:#fbbf24;letter-spacing:.05em}
+.sa-toggle:hover{background:#fbbf2415}
+.sa-toggle .sa-icon{font-size:14px;transition:transform .2s}
+.sa-toggle.open .sa-icon{transform:rotate(180deg)}
+.sa-body{display:none;padding:12px 14px;background:#fbbf2408;font-size:13px;line-height:1.6;color:var(--txt)}
+.sa-body.open{display:block;animation:fi .2s ease}
+.sa-body .sa-row{display:flex;gap:8px;padding:3px 0;border-bottom:1px solid #2a2a2a}
+.sa-body .sa-row:last-child{border-bottom:none}
+.sa-body .sa-key{color:#fbbf24;min-width:120px;font-size:12px;flex-shrink:0}
+.sa-body .sa-val{font-weight:600}
+
 .qa{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
 .btn{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;padding:11px 22px;border-radius:8px;cursor:pointer;border:none;transition:all .15s}
 .bchk{background:var(--acc);color:#000}
@@ -119,12 +130,10 @@ select.bad{border-color:var(--bad)}
 </style>
 </head>
 <body>
-
 <div id="loading">
   <div class="spin"></div>
   <p>Savollar yuklanmoqda...</p>
 </div>
-
 <header id="hdr" style="display:none">
   <span class="logo">⬡ AI Quiz</span>
   <div class="pw">
@@ -144,17 +153,14 @@ select.bad{border-color:var(--bad)}
   <div id="qw"></div>
 </main>
 <div id="res"></div>
-
 <script>
 let Q=[],cur=0,ans={},scOk=0,scBad=0,dragSrc=null;
 const TL={single:"Bir javobli",multiple:"Ko'p javobli",text:"Matnli",fill_in:"To'ldiring",matching:"Juftlashtirish",ordering:"Tartibga soling"};
 const BC={single:"bs",multiple:"bm",text:"bt",fill_in:"bf",matching:"bM",ordering:"bo"};
-
 function h(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 function norm(s){return String(s).trim().toLowerCase().replace(/\s+/g," ");}
 function shuf(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
 
-// Load JSON
 fetch('questions.json')
   .then(r=>{if(!r.ok)throw new Error('Fayl topilmadi');return r.json();})
   .then(data=>{
@@ -174,8 +180,7 @@ function buildDots(){
   const w=document.getElementById("nd");w.innerHTML="";
   Q.forEach((q,i)=>{
     const b=document.createElement("button");
-    b.textContent=i+1;b.dataset.i=i;
-    w.appendChild(b);
+    b.textContent=i+1;b.dataset.i=i;w.appendChild(b);
   });
   w.addEventListener("click",e=>{
     const b=e.target.closest("button");
@@ -183,7 +188,6 @@ function buildDots(){
   });
   syncDots();
 }
-
 function syncDots(){
   document.querySelectorAll("#nd button").forEach((b,i)=>{
     b.className="";
@@ -193,7 +197,6 @@ function syncDots(){
     if(a?.checked&&a.correct===false)b.classList.add("abad");
   });
 }
-
 function updHUD(){
   const done=Object.keys(ans).length;
   const pct=Q.length?(done/Q.length*100):0;
@@ -202,6 +205,42 @@ function updHUD(){
   document.getElementById("sc").textContent=scOk;
   document.getElementById("sw").textContent=scBad;
   document.getElementById("sr").textContent=Q.length-done;
+}
+
+/* ---- SHOW ANSWER ---- */
+function buildShowAnswer(q){
+  const ca=q.correct_answer;
+  let content="";
+  if(q.type==="single"||q.type==="text"){
+    content=`<div class="sa-row"><span class="sa-key">To'g'ri javob</span><span class="sa-val">${h(String(ca))}</span></div>`;
+  }else if(q.type==="multiple"){
+    const arr=Array.isArray(ca)?ca:[ca];
+    content=arr.map(v=>`<div class="sa-row"><span class="sa-key">✓</span><span class="sa-val">${h(v)}</span></div>`).join("");
+  }else if(q.type==="fill_in"){
+    content=Object.entries(ca).map(([k,v])=>
+      `<div class="sa-row"><span class="sa-key">${h(k)}</span><span class="sa-val">${h(v)}</span></div>`).join("");
+  }else if(q.type==="matching"){
+    content=Object.entries(ca).map(([k,v])=>
+      `<div class="sa-row"><span class="sa-key">${h(k)}</span><span class="sa-val">→ ${h(v)}</span></div>`).join("");
+  }else if(q.type==="ordering"){
+    content=ca.map((v,i)=>
+      `<div class="sa-row"><span class="sa-key">${i+1}-qadam</span><span class="sa-val">${h(v)}</span></div>`).join("");
+  }
+  return `
+<div class="sa-box">
+  <div class="sa-toggle" id="sa-toggle" onclick="toggleSA()">
+    <span>👁 Show Answer</span><span class="sa-icon">▾</span>
+  </div>
+  <div class="sa-body" id="sa-body">${content}</div>
+</div>`;
+}
+
+function toggleSA(){
+  const tog=document.getElementById("sa-toggle");
+  const bod=document.getElementById("sa-body");
+  if(!tog||!bod)return;
+  tog.classList.toggle("open");
+  bod.classList.toggle("open");
 }
 
 function render(){
@@ -220,6 +259,7 @@ function render(){
   <div class="qt">${h(q.question)}</div>
   ${body}
   ${ck?buildFB(q,st.correct):""}
+  ${buildShowAnswer(q)}
   <div class="qa">
     <button class="btn bpv" id="bpv" ${cur===0?"disabled":""}>← Oldingi</button>
     <button class="btn bchk" id="bchk" ${ck?"disabled":""}>${ck?"Tekshirildi ✓":"Tekshirish"}</button>
@@ -243,7 +283,6 @@ function rSingle(q,st,ck){
     return `<div class="${c}${ck?" locked":""}" data-opt="${h(o)}"><div class="tick">${t}</div><span class="ol">${h(o)}</span></div>`;
   }).join("")+"</div>";
 }
-
 function rMulti(q,st,ck){
   const uv=st?.value||[];
   const ca=Array.isArray(q.correct_answer)?q.correct_answer:[q.correct_answer];
@@ -259,12 +298,10 @@ function rMulti(q,st,ck){
     return `<div class="${c}${ck?" locked":""}" data-opt="${h(o)}"><div class="tick">${t}</div><span class="ol">${h(o)}</span></div>`;
   }).join("")+"</div>";
 }
-
 function rText(q,st,ck){
   const v=st?.value||"",c=ck?(st?.correct?"ok":"bad"):"";
   return `<input type="text" class="${c}" id="ti" placeholder="Javobingizni yozing..." value="${h(v)}" ${ck?"disabled":""}>`;
 }
-
 function rFill(q,st,ck){
   const uv=st?.value||{};
   return "<div class='fg'>"+Object.keys(q.correct_answer).map(k=>{
@@ -272,7 +309,6 @@ function rFill(q,st,ck){
     return `<div class="fr"><span class="fk">${h(k)}</span><input type="text" class="fi ${c}" id="fi_${h(k)}" value="${h(v)}" placeholder="${h(k)}..." ${ck?"disabled":""}></div>`;
   }).join("")+"</div>";
 }
-
 function rMatch(q,st,ck){
   const ca=q.correct_answer,prompts=Object.keys(ca),opts=shuf(Object.values(ca)),uv=st?.value||{};
   return "<div class='mg'>"+prompts.map((p,i)=>{
@@ -282,7 +318,6 @@ function rMatch(q,st,ck){
       <select class="${c}" id="ms${i}" ${ck?"disabled":""}><option value="">Tanlang...</option>${optHtml}</select></div>`;
   }).join("")+"</div>";
 }
-
 function rOrder(q,st,ck){
   const order=st?.value||[...q.options];
   return "<div class='ol-list' id='ollist'>"+order.map((item,i)=>{
@@ -291,7 +326,6 @@ function rOrder(q,st,ck){
       <span class="oh">⠿</span><span class="on">${i+1}</span><span>${h(item)}</span></div>`;
   }).join("")+"</div>";
 }
-
 function buildFB(q,ok){
   const cls=ok?"ok":"bad",lbl=ok?"To'g'ri!":"Noto'g'ri!",icon=ok?"✓":"✕";
   let det="";
@@ -311,7 +345,6 @@ function buildFB(q,ok){
   }
   return `<div class="fb ${cls} show"><span class="fbi">${icon}</span><div><div class="fbl">${lbl}</div>${det}</div></div>`;
 }
-
 function setupDrag(q){
   const list=document.getElementById("ollist");
   if(!list)return;
@@ -334,7 +367,6 @@ function setupDrag(q){
     });
   });
 }
-
 document.addEventListener("click",e=>{
   const el=e.target.closest(".opt:not(.locked)");
   if(!el)return;
@@ -352,7 +384,6 @@ document.addEventListener("click",e=>{
     else{arr.push(opt);el.classList.add("sel");el.querySelector(".tick").textContent="✓";}
   }
 });
-
 function chk(){
   const q=Q[cur];let uv=ans[q.id]?.value,ok=false;
   if(q.type==="single"){
@@ -402,7 +433,6 @@ function chk(){
   if(allDone){render();setTimeout(showRes,600);}
   else{render();if(ok&&cur<Q.length-1)setTimeout(()=>{cur++;render();},1200);}
 }
-
 function showRes(){
   document.getElementById("qmain").style.display="none";
   document.getElementById("hdr").style.display="none";
@@ -420,7 +450,6 @@ function showRes(){
     <button class="brst" id="rbtn">Qaytadan boshlash</button>`;
   document.getElementById("rbtn").onclick=restart;
 }
-
 function restart(){
   ans={};scOk=0;scBad=0;cur=0;
   document.getElementById("res").style.display="none";
